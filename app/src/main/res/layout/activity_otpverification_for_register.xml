@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center"
+            android:src="@drawable/otp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="OTP Verification"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="40dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Please Enter the OTP sent to"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/mobilenumber_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="15dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/otp1_register"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:textSize="24dp"
+                android:gravity="center"
+                android:maxLength="1"
+                android:textStyle="bold"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:background="@drawable/buttonborder">
+            </EditText>
+
+            <EditText
+                android:id="@+id/otp2_register"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:textSize="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:gravity="center"
+                android:maxLength="1"
+                android:textStyle="bold"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:background="@drawable/buttonborder">
+            </EditText>
+
+            <EditText
+                android:id="@+id/otp3_register"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:textSize="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:gravity="center"
+                android:maxLength="1"
+                android:textStyle="bold"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:background="@drawable/buttonborder">
+            </EditText>
+
+            <EditText
+                android:id="@+id/otp4_register"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:textSize="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:gravity="center"
+                android:maxLength="1"
+                android:textStyle="bold"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:background="@drawable/buttonborder">
+            </EditText>
+
+            <EditText
+                android:id="@+id/otp5_register"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:textSize="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:gravity="center"
+                android:maxLength="1"
+                android:textStyle="bold"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:background="@drawable/buttonborder">
+            </EditText>
+
+            <EditText
+                android:id="@+id/otp6_register"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:textSize="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:gravity="center"
+                android:maxLength="1"
+                android:textStyle="bold"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:background="@drawable/buttonborder">
+            </EditText>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/otp_verify_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="50dp"
+            android:text="Submit"
+            android:background="@drawable/buttoncolor"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <ProgressBar
+            android:id="@+id/progressbarforotp_register"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:visibility="gone"></ProgressBar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Didn't receive OTP?"
+                android:textAlignment="center"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/Resendotpbutton_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="Resend OTP"
+                android:textAlignment="center"
+                android:textColor="@color/SplashRed"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "823083579445",
+    "firebase_url": "https://homemate-c09db-default-rtdb.firebaseio.com",
+    "project_id": "homemate-c09db",
+    "storage_bucket": "homemate-c09db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823083579445:android:bb772b0e04663d51ab597c",
+        "android_client_info": {
+          "package_name": "com.example.homemate"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPA0lrPek_zaYqbaOXVyKJ6eieiQDyt-4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
