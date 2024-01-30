@@ -17,6 +17,7 @@ import com.example.homemate.BottomNavigationActivity;
 import com.example.homemate.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,8 +25,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginActivity extends AppCompatActivity {
 
     private Button Login_btn;
-    private EditText email;
-    private EditText password;
+    private TextInputLayout email;
+    private TextInputLayout password;
     private ProgressBar progressBar;
     private TextView forgotpassword;
     private FirebaseAuth mAuth;
@@ -69,8 +70,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 progressBar.setVisibility(View.VISIBLE);
                 Login_btn.setVisibility(View.INVISIBLE);
-                String txtemail=email.getText().toString();
-                String txtpassword=password.getText().toString();
+                String txtemail=email.getEditText().getText().toString();
+                String txtpassword=password.getEditText().getText().toString();
                 if(txtemail.isEmpty() | txtpassword.isEmpty()){
                     Toast.makeText(LoginActivity.this, "Please enter all details", Toast.LENGTH_SHORT).show();
                 }else {
