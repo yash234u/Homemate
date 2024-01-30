@@ -36,7 +36,7 @@ public class OnboardingActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_onboarding);
         List<ScreenItem> mList = new ArrayList<>();
-        mList.add(new ScreenItem("Fresh & Tidy Spaces!","Get scheduled cleaning and maintenance services for a sparkling home.", R.raw.cleaning));
+        mList.add(new ScreenItem("Fresh & Tidy Spaces!","Get scheduled cleaning and maintenance services for a sparkling home.", R.raw.cleaning1));
         mList.add(new ScreenItem("Fix it Right, Right Away!","Timely plumbing &amp; repair services for your household needs.", R.raw.plumbingrepair));
         mList.add(new ScreenItem("Beauty At Your Doorstep!","Pamper yourself now with our home beauty services. Tap to begin your journey with HomeMate.", R.raw.beauty));
 
