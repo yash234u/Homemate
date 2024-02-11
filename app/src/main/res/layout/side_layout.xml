@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/peach">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -36,8 +35,7 @@
         android:layout_marginRight="178dp"
         android:gravity="center"
         android:text="TextView"
-        android:background="@color/peach"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:fontFamily="@font/roboto_regular"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,6 +53,7 @@
         android:layout_marginRight="176dp"
         android:gravity="center"
         android:padding="10dp"
+        android:textColor="@color/black"
         android:text="Get scheduled cleaning and maintenance services for a sparkling home."
         android:textSize="18sp"
         android:fontFamily="@font/roboto_regular"

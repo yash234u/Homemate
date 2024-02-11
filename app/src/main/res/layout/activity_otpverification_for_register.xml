@@ -66,7 +66,7 @@
                 android:textColor="@color/black"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
-                android:background="@drawable/buttonborder">
+                android:background="@drawable/buttonsplash">
             </EditText>
 
             <EditText
@@ -83,7 +83,7 @@
                 android:textColor="@color/black"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
-                android:background="@drawable/buttonborder">
+                android:background="@drawable/buttonsplash">
             </EditText>
 
             <EditText
@@ -100,7 +100,7 @@
                 android:textColor="@color/black"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
-                android:background="@drawable/buttonborder">
+                android:background="@drawable/buttonsplash">
             </EditText>
 
             <EditText
@@ -117,7 +117,7 @@
                 android:textColor="@color/black"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
-                android:background="@drawable/buttonborder">
+                android:background="@drawable/buttonsplash">
             </EditText>
 
             <EditText
@@ -134,7 +134,7 @@
                 android:textColor="@color/black"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
-                android:background="@drawable/buttonborder">
+                android:background="@drawable/buttonsplash">
             </EditText>
 
             <EditText
@@ -151,7 +151,7 @@
                 android:textColor="@color/black"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
-                android:background="@drawable/buttonborder">
+                android:background="@drawable/buttonsplash">
             </EditText>
         </LinearLayout>
 
