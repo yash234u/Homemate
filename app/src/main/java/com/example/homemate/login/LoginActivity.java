@@ -72,8 +72,10 @@ public class LoginActivity extends AppCompatActivity {
                 Login_btn.setVisibility(View.INVISIBLE);
                 String txtemail=email.getEditText().getText().toString();
                 String txtpassword=password.getEditText().getText().toString();
-                if(txtemail.isEmpty() | txtpassword.isEmpty()){
+                if(!validatePassword() | !validateEmail()){
                     Toast.makeText(LoginActivity.this, "Please enter all details", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
+                    Login_btn.setVisibility(View.VISIBLE);
                 }else {
                     mAuth.signInWithEmailAndPassword(txtemail, txtpassword)
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -98,6 +100,28 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
+    }
+    private boolean validateEmail() {
+        String val = email.getEditText().getText().toString();
+        if (val.isEmpty()) {
+            email.setError("Please enter your Email");
+            return false;
+        } else {
+            email.setError(null);
+            email.setErrorEnabled(false);
+            return true;
+        }
+    }
+    private boolean validatePassword() {
+        String val = password.getEditText().getText().toString();
+        if (val.isEmpty()) {
+            password.setError("Please enter your Password");
+            return false;
+        } else {
+            password.setError(null);
+            password.setErrorEnabled(false);
+            return true;
+        }
     }
 
 

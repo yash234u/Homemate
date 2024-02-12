@@ -29,7 +29,7 @@ public class PlumbingActivity extends AppCompatActivity {
 
         recyclerView=(RecyclerView) findViewById(R.id.rv_plumbing);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        databaseReference= FirebaseDatabase.getInstance().getReference("AC Repair");
+        databaseReference= FirebaseDatabase.getInstance().getReference("Categories").child("Plumbing");
 
         servicesList=new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

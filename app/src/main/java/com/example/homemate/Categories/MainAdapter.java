@@ -1,6 +1,7 @@
 package com.example.homemate.Categories;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,10 +45,23 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.myViewHolder> 
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
         Model model=servicesList.get(position);
         holder.sname.setText(model.getName());
-        holder.dname.setText(model.getDesc());
-        holder.price.setText(model.getPrice());
+        //holder.dname.setText(model.getDesc());
+        holder.price.setText("Price: ₹ "+model.getPrice());
         Glide.with(context).load(model.getImage())
                 .into(holder.imageView);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(context, FullViewActivity.class);
+                intent.putExtra("servicename",model.getName());
+                intent.putExtra("servicedesc",model.getDesc());
+                intent.putExtra("serviceprice",model.getPrice());
+                intent.putExtra("serviceimage",model.getImage());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -64,7 +78,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.myViewHolder> 
             super(itemView);
             imageView=(ImageView) itemView.findViewById(R.id.ServiceImage);
             sname=(TextView) itemView.findViewById(R.id.ServiceName);
-            dname=(TextView) itemView.findViewById(R.id.ServiceDescription);
+           // dname=(TextView) itemView.findViewById(R.id.ServiceDescription);
             price=(TextView) itemView.findViewById(R.id.ServicePrice);
         }
     }

@@ -13,11 +13,10 @@
             android:id="@+id/ServiceName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_regular"
+            android:layout_margin="15dp"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
+            android:fontFamily="@font/roboto_regular"
             android:text="ServiceName"
             android:textSize="25sp"
             android:textStyle="bold"></TextView>
@@ -34,7 +33,7 @@
             android:layout_below="@+id/ServiceName">
         </TextView>
 
-        <TextView
+  <!--      <TextView
             android:id="@+id/ServiceDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,17 +44,13 @@
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
             android:text="ServiceDescription"
-            android:textSize="20sp"></TextView>
+            android:textSize="20sp"></TextView> -->
 
         <ImageView
             android:id="@+id/ServiceImage"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"></ImageView>
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentRight="true"></ImageView>
 
     </RelativeLayout>
 
