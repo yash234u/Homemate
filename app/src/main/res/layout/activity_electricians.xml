@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Categories.Plumbing.PlumbingActivity">
+    tools:context=".Categories.Electricians.ElectriciansActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_plumbing"
+        android:id="@+id/rv_electricians"
         android:layout_width="409dp"
         android:layout_height="729dp"
         app:layout_constraintBottom_toBottomOf="parent"

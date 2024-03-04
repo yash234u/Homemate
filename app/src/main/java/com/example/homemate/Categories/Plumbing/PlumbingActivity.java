@@ -1,4 +1,4 @@
-package com.example.homemate.Categories;
+package com.example.homemate.Categories.Plumbing;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.example.homemate.Categories.MainAdapter;
+import com.example.homemate.Categories.Model;
 import com.example.homemate.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

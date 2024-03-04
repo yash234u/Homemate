@@ -10,8 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.homemate.Categories.PlumbingActivity;
-import com.example.homemate.login.ForgotPasswordActivity;
+import com.example.homemate.Categories.Plumbing.PlumbingActivity;
 
 public class CategoriesFragment extends Fragment {
 

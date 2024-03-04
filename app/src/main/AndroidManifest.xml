@@ -17,10 +17,13 @@
         android:theme="@style/Theme.HOMEMATE"
         tools:targetApi="31">
         <activity
+            android:name=".Categories.Electricians.ElectriciansActivity"
+            android:exported="false" />
+        <activity
             android:name=".Categories.FullViewActivity"
             android:exported="false" />
         <activity
-            android:name=".Categories.PlumbingActivity"
+            android:name=".Categories.Plumbing.PlumbingActivity"
             android:exported="false" />
         <activity
             android:name=".walkthrough.OnboardingActivity"
