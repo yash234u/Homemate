@@ -4,26 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="15dp"
     tools:context=".Categories.FullViewActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/fullviewimage"
             android:layout_width="match_parent"
-            android:layout_height="240dp">
-        </ImageView>
+            android:layout_height="260dp"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/Rounded">
+        </com.google.android.material.imageview.ShapeableImageView>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="15dp">
         <TextView
             android:id="@+id/fullviewservicename"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Service Name"
             android:textSize="35sp"
+            android:layout_marginTop="10dp"
             android:textStyle="bold"
             android:fontFamily="@font/roboto_regular"/>
         <TextView
@@ -31,7 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="$ 499"
-            android:layout_marginTop="10dp"
+            android:textColor="@color/random"
+            android:layout_marginTop="15dp"
             android:textSize="20sp"
             android:textStyle="bold"
             android:fontFamily="@font/roboto_regular"/>
@@ -49,16 +57,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Description:"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/roboto_regular"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Book">
-        </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Book"
+                android:background="@drawable/buttoncolor">
+            </androidx.appcompat.widget.AppCompatButton>
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>

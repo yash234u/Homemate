@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".CategoriesFragment">
 
     <LinearLayout
@@ -31,7 +32,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/Plumbing_categories"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                app:cardElevation="15dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -75,6 +77,11 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Electricians_categories"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
@@ -107,6 +114,7 @@
                     android:textSize="30dp"
                     android:textStyle="bold" />
             </RelativeLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
 
         <LinearLayout
@@ -116,6 +124,10 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/AC_services_repair_categories"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
@@ -131,7 +143,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="35dp"
                     android:layout_marginBottom="12dp"
-                    android:src="@drawable/cleaning"/>
+                    android:src="@drawable/airconditioner"/>
 
                 <TextView
                     android:id="@+id/textView3"
@@ -143,11 +155,12 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="30dp"
                     android:layout_marginBottom="30dp"
-                    android:text="Full Home Cleaning"
+                    android:text="AC Services/Repair"
                     android:fontFamily="@font/darkergrotesque_wght"
                     android:textSize="30dp"
                     android:textStyle="bold" />
             </RelativeLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
 
         <LinearLayout
@@ -157,6 +170,10 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Carpenters_categories"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
@@ -189,6 +206,7 @@
                     android:textSize="30dp"
                     android:textStyle="bold" />
             </RelativeLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
 
     </LinearLayout>

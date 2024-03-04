@@ -17,6 +17,12 @@
         android:theme="@style/Theme.HOMEMATE"
         tools:targetApi="31">
         <activity
+            android:name=".Categories.AC.ACActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Categories.Carpenter.CarpenterActivity"
+            android:exported="false" />
+        <activity
             android:name=".Categories.Electricians.ElectriciansActivity"
             android:exported="false" />
         <activity

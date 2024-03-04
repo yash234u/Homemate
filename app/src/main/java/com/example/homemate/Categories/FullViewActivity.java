@@ -27,7 +27,7 @@ public class FullViewActivity extends AppCompatActivity {
 
         fullviewservicename.setText(getIntent().getStringExtra("servicename"));
         fullviewdescname.setText(getIntent().getStringExtra("servicedesc"));
-        fullviewpricename.setText("Price: ₹ "+getIntent().getStringExtra("serviceprice"));
+        fullviewpricename.setText(" ₹ "+getIntent().getStringExtra("serviceprice"));
         Glide.with(getApplicationContext()).load(getIntent().getStringExtra("serviceimage")).into(fullviewimage);
 
     }
