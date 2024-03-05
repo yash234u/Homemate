@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.example.homemate.Categories.MainAdapter;
 import com.example.homemate.Categories.Model;
@@ -20,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class CarpenterActivity extends AppCompatActivity {
-
+    ProgressBar progressBar;
     RecyclerView recyclerView;
     ArrayList<Model> servicesList;
     DatabaseReference databaseReference;
@@ -31,6 +33,7 @@ public class CarpenterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carpenter);
 
+        progressBar=(ProgressBar)findViewById(R.id.progress_bar_service);
         recyclerView=(RecyclerView) findViewById(R.id.rv_carpenter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         databaseReference= FirebaseDatabase.getInstance().getReference("Categories").child("Carpenter");
@@ -39,6 +42,8 @@ public class CarpenterActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mainAdapter=new MainAdapter(this,servicesList);
         recyclerView.setAdapter(mainAdapter);
+        progressBar.setVisibility(View.VISIBLE);
+
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -47,6 +52,7 @@ public class CarpenterActivity extends AppCompatActivity {
                 {
                     Model model=dataSnapshot.getValue(Model.class);
                     servicesList.add(model);
+                    progressBar.setVisibility(View.GONE);
                 }
                 mainAdapter.notifyDataSetChanged();
             }

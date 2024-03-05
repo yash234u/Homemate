@@ -7,51 +7,52 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/ServiceImage"
+            android:src="@mipmap/ic_launcher"
+            android:scaleType="centerCrop"
+            android:layout_centerVertical="true"
+            app:shapeAppearanceOverlay="@style/Rounded_full">
+        </com.google.android.material.imageview.ShapeableImageView>
 
         <TextView
-            android:id="@+id/ServiceName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginBottom="15dp"
-            android:fontFamily="@font/roboto_regular"
+            android:id="@+id/ServiceName"
             android:text="ServiceName"
+            android:textStyle="bold"
             android:textSize="25sp"
-            android:textStyle="bold"></TextView>
+            android:layout_toRightOf="@id/ServiceImage"
+            android:layout_marginLeft="15dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/ServiceTagline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Tagline"
+            android:textSize="15sp"
+            android:layout_margin="15dp"
+            android:layout_toRightOf="@id/ServiceImage"
+            android:layout_below="@+id/ServiceName"/>
 
         <TextView
             android:id="@+id/ServicePrice"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/ServiceTagline"
+            android:layout_toRightOf="@id/ServiceImage"
             android:fontFamily="@font/roboto_regular"
-            android:text="499"
-            android:textStyle="bold"
-            android:textSize="15sp"
             android:layout_margin="15dp"
-            android:layout_below="@+id/ServiceName">
-        </TextView>
-
-  <!--      <TextView
-            android:id="@+id/ServiceDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_regular"
-            android:layout_below="@+id/ServicePrice"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="15dp"
-            android:text="ServiceDescription"
-            android:textSize="20sp"></TextView> -->
-
-        <ImageView
-            android:id="@+id/ServiceImage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignParentRight="true"></ImageView>
-
+            android:text="499"
+            android:textSize="15sp"
+            android:textStyle="bold"></TextView>
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

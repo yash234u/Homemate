@@ -1,4 +1,4 @@
-package com.example.homemate.Categories.AC;
+package com.example.homemate.Categories.Appliance;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,8 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ACActivity extends AppCompatActivity {
-
+public class ApplianceActivity extends AppCompatActivity {
     ProgressBar progressBar;
     RecyclerView recyclerView;
     ArrayList<Model> servicesList;
@@ -32,19 +31,18 @@ public class ACActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_acactivity);
-
-        progressBar=(ProgressBar)findViewById(R.id.progress_bar_service);
-        recyclerView=(RecyclerView) findViewById(R.id.rv_AC);
+        setContentView(R.layout.activity_appliance);
+        progressBar=(ProgressBar) findViewById(R.id.progress_bar_service);
+        recyclerView=(RecyclerView) findViewById(R.id.rv_appliance);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        databaseReference= FirebaseDatabase.getInstance().getReference("Categories").child("AC_services_repair");
+        databaseReference= FirebaseDatabase.getInstance().getReference("Categories").child("Appliance_service_repair");
 
         servicesList=new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mainAdapter=new MainAdapter(this,servicesList);
         recyclerView.setAdapter(mainAdapter);
-        progressBar.setVisibility(View.VISIBLE);
 
+        progressBar.setVisibility(View.VISIBLE);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -63,4 +61,5 @@ public class ACActivity extends AppCompatActivity {
             }
         });
     }
+
 }

@@ -15,6 +15,7 @@
             android:id="@+id/fullviewimage"
             android:layout_width="match_parent"
             android:layout_height="260dp"
+            android:src="@mipmap/ic_launcher"
             android:scaleType="centerCrop"
             app:shapeAppearanceOverlay="@style/Rounded">
         </com.google.android.material.imageview.ShapeableImageView>

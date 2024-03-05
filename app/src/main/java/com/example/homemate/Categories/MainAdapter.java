@@ -45,7 +45,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.myViewHolder> 
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
         Model model=servicesList.get(position);
         holder.sname.setText(model.getName());
-        //holder.dname.setText(model.getDesc());
+        holder.tagline.setText(model.getTagline());
         holder.price.setText("Price: ₹ "+model.getPrice());
         Glide.with(context).load(model.getImage())
                 .into(holder.imageView);
@@ -72,13 +72,13 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.myViewHolder> 
     class myViewHolder extends RecyclerView.ViewHolder{
 
         ImageView imageView;
-        TextView sname,dname,price;
+        TextView sname,price,tagline;
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView=(ImageView) itemView.findViewById(R.id.ServiceImage);
             sname=(TextView) itemView.findViewById(R.id.ServiceName);
-           // dname=(TextView) itemView.findViewById(R.id.ServiceDescription);
+            tagline=(TextView) itemView.findViewById(R.id.ServiceTagline);
             price=(TextView) itemView.findViewById(R.id.ServicePrice);
         }
     }

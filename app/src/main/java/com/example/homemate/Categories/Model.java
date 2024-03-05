@@ -1,7 +1,20 @@
 package com.example.homemate.Categories;
 
 public class Model {
-    String name,desc,image,price;
+    String name;
+    String desc;
+    String image;
+    String price;
+
+    public String getTagline() {
+        return tagline;
+    }
+
+    public void setTagline(String tagline) {
+        this.tagline = tagline;
+    }
+
+    String tagline;
 
     public Model(String name, String desc, String image, String price) {
         this.name = name;

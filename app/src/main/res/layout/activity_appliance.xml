@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Categories.Electricians.ElectriciansActivity">
+    tools:context=".Categories.Appliance.ApplianceActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_electricians"
+        android:id="@+id/rv_appliance"
         android:layout_width="409dp"
         android:layout_height="729dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,7 +19,7 @@
         android:id="@+id/progress_bar_service"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/rv_electricians"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_appliance"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></ProgressBar>
