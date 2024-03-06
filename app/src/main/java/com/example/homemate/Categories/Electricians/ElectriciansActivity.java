@@ -43,7 +43,7 @@ public class ElectriciansActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mainAdapter=new MainAdapter(this,servicesList);
         recyclerView.setAdapter(mainAdapter);
-        progressBar.setVisibility(View.GONE);
+        progressBar.setVisibility(View.VISIBLE);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override

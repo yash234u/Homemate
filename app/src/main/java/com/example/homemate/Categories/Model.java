@@ -5,6 +5,24 @@ public class Model {
     String desc;
     String image;
     String price;
+    String include;
+    String exclude;
+
+    public String getExclude() {
+        return exclude;
+    }
+
+    public void setExclude(String exclude) {
+        this.exclude = exclude;
+    }
+
+    public String getInclude() {
+        return include;
+    }
+
+    public void setInclude(String include) {
+        this.include = include;
+    }
 
     public String getTagline() {
         return tagline;

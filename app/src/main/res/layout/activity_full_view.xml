@@ -14,7 +14,7 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/fullviewimage"
             android:layout_width="match_parent"
-            android:layout_height="260dp"
+            android:layout_height="280dp"
             android:src="@mipmap/ic_launcher"
             android:scaleType="centerCrop"
             app:shapeAppearanceOverlay="@style/Rounded">
@@ -61,6 +61,67 @@
             android:textSize="16sp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/roboto_regular"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Included:"
+                android:layout_marginTop="15dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/roboto_regular">
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/check">
+                </ImageView>
+                <TextView
+                    android:id="@+id/included_in_service"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="include"
+                    android:textSize="16sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/roboto_regular"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Excluded:"
+                android:layout_marginTop="15dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/roboto_regular">
+            </TextView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/cancel">
+                </ImageView>
+                <TextView
+                    android:id="@+id/excluded_in_service"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="exclude"
+                    android:textSize="16sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/roboto_regular"/>
+            </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="match_parent"

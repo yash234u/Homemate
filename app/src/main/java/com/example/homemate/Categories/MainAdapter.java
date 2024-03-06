@@ -58,6 +58,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.myViewHolder> 
                 intent.putExtra("servicedesc",model.getDesc());
                 intent.putExtra("serviceprice",model.getPrice());
                 intent.putExtra("serviceimage",model.getImage());
+                intent.putExtra("serviceinclude",model.getInclude());
+                intent.putExtra("serviceexclude",model.getExclude());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
             }
@@ -72,7 +74,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.myViewHolder> 
     class myViewHolder extends RecyclerView.ViewHolder{
 
         ImageView imageView;
-        TextView sname,price,tagline;
+        TextView sname,price,tagline,include,exclude;
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -80,6 +82,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.myViewHolder> 
             sname=(TextView) itemView.findViewById(R.id.ServiceName);
             tagline=(TextView) itemView.findViewById(R.id.ServiceTagline);
             price=(TextView) itemView.findViewById(R.id.ServicePrice);
+            include=(TextView) itemView.findViewById(R.id.included_in_service);
+            exclude=(TextView) itemView.findViewById(R.id.excluded_in_service);
+
         }
     }
 }

@@ -5,12 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import com.example.homemate.BottomNavigationActivity;
 import com.example.homemate.Categories.MainAdapter;
 import com.example.homemate.Categories.Model;
+import com.example.homemate.CategoriesFragment;
 import com.example.homemate.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,6 +26,7 @@ import java.util.ArrayList;
 
 public class PlumbingActivity extends AppCompatActivity {
 
+    ImageView backbtn;
     ProgressBar progressBar;
     RecyclerView recyclerView;
     ArrayList<Model> servicesList;
@@ -32,6 +37,7 @@ public class PlumbingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plumbing);
 
+        backbtn=findViewById(R.id.back_button_service);
         progressBar=(ProgressBar) findViewById(R.id.progress_bar_service);
         recyclerView=(RecyclerView) findViewById(R.id.rv_plumbing);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -60,5 +66,15 @@ public class PlumbingActivity extends AppCompatActivity {
 
             }
         });
+
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(), BottomNavigationActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
+
 }

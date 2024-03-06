@@ -13,7 +13,7 @@ import org.w3c.dom.Text;
 
 public class FullViewActivity extends AppCompatActivity {
 
-    TextView fullviewdescname,fullviewpricename,fullviewservicename;
+    TextView fullviewdescname,fullviewpricename,fullviewservicename,includeservice,excludeservice;
     ImageView fullviewimage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +24,16 @@ public class FullViewActivity extends AppCompatActivity {
         fullviewservicename=(TextView) findViewById(R.id.fullviewservicename);
         fullviewpricename=(TextView) findViewById(R.id.fullviewpricename);
         fullviewimage=(ImageView) findViewById(R.id.fullviewimage);
+        includeservice=(TextView) findViewById(R.id.included_in_service);
+        excludeservice=(TextView) findViewById(R.id.excluded_in_service);
 
         fullviewservicename.setText(getIntent().getStringExtra("servicename"));
         fullviewdescname.setText(getIntent().getStringExtra("servicedesc"));
         fullviewpricename.setText(" ₹ "+getIntent().getStringExtra("serviceprice"));
         Glide.with(getApplicationContext()).load(getIntent().getStringExtra("serviceimage")).into(fullviewimage);
+        includeservice.setText(getIntent().getStringExtra("serviceinclude"));
+        excludeservice.setText(getIntent().getStringExtra("serviceexclude"));
+
 
     }
 }

@@ -1,26 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Categories.Carpenter.CarpenterActivity">
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    tools:context=".Categories.Plumbing.PlumbingActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_carpenter"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/progress_bar_service"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/rv_carpenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ProgressBar>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="15dp">
+                <ImageView
+                    android:id="@+id/back_button_service"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/baseline_arrow_back_24"></ImageView>
+
+                <TextView
+                    android:id="@+id/txt_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Carpenter"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/ubuntu_bold"
+                    android:textSize="38dp">
+                </TextView>
+
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_carpenter"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <ProgressBar
+                android:id="@+id/progress_bar_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></ProgressBar>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
