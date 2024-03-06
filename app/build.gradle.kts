@@ -56,5 +56,7 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.airbnb.android:lottie-compose:6.3.0")
 
+    // image slider
+    implementation("com.github.denzcoskun:ImageSlideshow:0.1.2")
 
 }
