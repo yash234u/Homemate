@@ -58,5 +58,6 @@ dependencies {
 
     // image slider
     implementation("com.github.denzcoskun:ImageSlideshow:0.1.2")
+    implementation ("com.squareup.picasso:picasso:2.8")
 
 }

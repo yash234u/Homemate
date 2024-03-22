@@ -8,6 +8,7 @@ import android.graphics.RenderEffect;
 import android.graphics.Shader;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -41,13 +42,14 @@ public class SplashActivity_2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash2);
-
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.activity_splash2);
         imageView = findViewById(R.id.imageViewsplash);
         login = findViewById(R.id.loginButton);
         register = findViewById(R.id.registerButton);
         mAuth = FirebaseAuth.getInstance();
+        //imageView.setRenderEffect(RenderEffect.createBlurEffect(10, 10, Shader.TileMode.MIRROR));
 
-        imageView.setRenderEffect(RenderEffect.createBlurEffect(10, 10, Shader.TileMode.MIRROR));
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override

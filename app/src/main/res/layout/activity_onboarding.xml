@@ -48,7 +48,7 @@
             android:layout_marginEnd="65dp"
             android:layout_marginStart="65dp"
             android:textSize="18sp"
-            android:background="@drawable/buttonsplash"
+            android:background="@drawable/buttoncolor"
             android:text="Let's Get Started"
             android:textColor="@color/white"
             android:visibility="visible" />

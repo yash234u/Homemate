@@ -80,7 +80,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
 
         fullname = findViewById(R.id.txtname);
         registerforcustomer = findViewById(R.id.btnregister);
-        imageView = findViewById(R.id.profilepic);
+      //  imageView = findViewById(R.id.profilepic);
         Gender = (RadioGroup) findViewById(R.id.GenderRadio);
         Email = findViewById(R.id.txtemail);
         Contact = findViewById(R.id.txtcontact);
@@ -97,12 +97,12 @@ public class UserRegistrationActivity extends AppCompatActivity {
         int selectedgender = Gender.getCheckedRadioButtonId();
         Genbutton = findViewById(selectedgender);
 
-        imageView.setOnClickListener(new View.OnClickListener() {
+     /*   imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SelectImage();
+
             }
-        });
+        });*/
 
         registerforcustomer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,7 +144,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
                                             if (snapshot.hasChild(username.getEditText().getText().toString())) {
                                                 Toast.makeText(UserRegistrationActivity.this, "User already exist", Toast.LENGTH_SHORT).show();
                                             } else {
-                                                uploadImage();
+                                                //uploadImage();
                                                 Toast.makeText(UserRegistrationActivity.this, "Code sent", Toast.LENGTH_SHORT).show();
                                                 Intent intent = new Intent(getApplicationContext(), otpverification_for_registerActivity.class);
                                                 intent.putExtra("fullname_register", fullname.getEditText().getText().toString());
@@ -174,7 +174,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
             }
         });
     }
-
+/*
     private void SelectImage() {
         // Defining Implicit Intent to mobile gallery
         Intent intent = new Intent();
@@ -211,7 +211,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
-            StorageReference ref = storageReference.child("UserProfilePictures/" + username.getEditText().getText().toString());
+            StorageReference ref = storageReference.child("UserProfilePictures/" +mAuth.getCurrentUser().getUid()+"/profile.jpg");
 
             // adding listeners on upload
             ref.putFile(filePath)
@@ -252,7 +252,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
                     });
         }
     }
-
+*/
     private boolean validateFullName() {
         String val = fullname.getEditText().getText().toString().trim();
         if (val.isEmpty()) {
@@ -360,7 +360,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
         Contact.getEditText().setText("");
         Address.getEditText().setText("");
         Gender.clearCheck();
-        imageView.setImageResource(0);
+//        imageView.setImageResource(0);
         password.getEditText().setText("");
         rpassword.getEditText().setText("");
     }

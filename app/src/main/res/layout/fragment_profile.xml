@@ -31,7 +31,7 @@
                     app:srcCompat="@drawable/arc_3" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/imageView7"
+                    android:id="@+id/profile_image"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:src="@drawable/profileicon"
