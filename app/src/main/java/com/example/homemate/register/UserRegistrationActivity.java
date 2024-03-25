@@ -141,7 +141,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
                                     databaseReference.child("UserDetails").addListenerForSingleValueEvent(new ValueEventListener() {
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                            if (snapshot.hasChild(username.getEditText().getText().toString())) {
+                                            if (snapshot.hasChild(Email.getEditText().getText().toString().replace(".",","))) {
                                                 Toast.makeText(UserRegistrationActivity.this, "User already exist", Toast.LENGTH_SHORT).show();
                                             } else {
                                                 //uploadImage();
@@ -150,7 +150,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
                                                 intent.putExtra("fullname_register", fullname.getEditText().getText().toString());
                                                 intent.putExtra("username_register", username.getEditText().getText().toString());
                                                 intent.putExtra("gender_register", Genbutton.getText().toString());
-                                                intent.putExtra("Email_register", Email.getEditText().getText().toString());
+                                                intent.putExtra("Email_register", Email.getEditText().getText().toString().replace(".",","));
                                                 intent.putExtra("mobile_register", Contact.getEditText().getText().toString());
                                                 intent.putExtra("Address_register", Address.getEditText().getText().toString());
                                                 intent.putExtra("password_register", password.getEditText().getText().toString());

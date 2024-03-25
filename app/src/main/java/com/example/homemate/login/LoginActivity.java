@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.homemate.BottomNavigationActivity;
 import com.example.homemate.R;
+import com.example.homemate.register.UserRegistrationActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -28,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputLayout email;
     private TextInputLayout password;
     private ProgressBar progressBar;
-    private TextView forgotpassword;
+    private TextView forgotpassword,register_btn;
     private FirebaseAuth mAuth;
 
     @Override
@@ -53,6 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         Login_btn = (Button) findViewById(R.id.LoginButton);
         progressBar = findViewById(R.id.progressbar_send);
         forgotpassword=findViewById(R.id.forgot_password);
+        register_btn=findViewById(R.id.registerButton);
         mAuth = FirebaseAuth.getInstance();
 
         forgotpassword.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +89,9 @@ public class LoginActivity extends AppCompatActivity {
                                     progressBar.setVisibility(View.GONE);
                                     Login_btn.setVisibility(View.VISIBLE);
                                     if (task.isSuccessful()) {
+                                        SharedPreferences.Editor editor= PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit();
+                                        editor.putString("Email_from_login",txtemail);
+                                        editor.apply();
                                     Intent intent=new Intent(getApplicationContext(), BottomNavigationActivity.class);
                                     startActivity(intent);
                                     finish();
@@ -98,7 +106,15 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-
+    register_btn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent=new Intent(getApplicationContext(), UserRegistrationActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }
+    });
 
     }
     private boolean validateEmail() {

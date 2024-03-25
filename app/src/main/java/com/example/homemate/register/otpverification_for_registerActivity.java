@@ -63,7 +63,7 @@ public class otpverification_for_registerActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressbarforotp_register);
         resend = findViewById(R.id.Resendotpbutton_register);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference = FirebaseDatabase.getInstance().getReference("UserDetails");
         storageReference = FirebaseStorage.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
@@ -106,13 +106,14 @@ public class otpverification_for_registerActivity extends AppCompatActivity {
                                         verifyBtn.setVisibility(View.VISIBLE);
 
                                         if (task.isSuccessful()) {
-                                            mAuth.createUserWithEmailAndPassword(getIntent().getStringExtra("Email_register"),
+                                            mAuth.createUserWithEmailAndPassword(getIntent().getStringExtra("Email_register").replace(",","."),
                                                             getIntent().getStringExtra("password_register"))
                                                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                                         @Override
                                                         public void onComplete(@NonNull Task<AuthResult> task) {
                                                             if (task.isSuccessful()) {
-
+                                                                Toast.makeText(otpverification_for_registerActivity.this, "Authentication successful.",
+                                                                        Toast.LENGTH_SHORT).show();
                                                             } else {
                                                                 Toast.makeText(otpverification_for_registerActivity.this, "Authentication failed.",
                                                                         Toast.LENGTH_SHORT).show();
@@ -120,21 +121,21 @@ public class otpverification_for_registerActivity extends AppCompatActivity {
                                                         }
                                                     });
 
-                                            databaseReference.child("UserDetails").addListenerForSingleValueEvent(new ValueEventListener() {
+                                            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                                                    databaseReference.child("UserDetails").child(getIntent().getStringExtra("username_register"))
+                                                    databaseReference.child(getIntent().getStringExtra("Email_register"))
                                                             .child("FullName").setValue(getIntent().getStringExtra("fullname_register"));
-                                                    databaseReference.child("UserDetails").child(getIntent().getStringExtra("username_register"))
+                                                    databaseReference.child(getIntent().getStringExtra("Email_register"))
                                                             .child("UserName").setValue(getIntent().getStringExtra("username_register"));
-                                                    databaseReference.child("UserDetails").child(getIntent().getStringExtra("username_register"))
+                                                    databaseReference.child(getIntent().getStringExtra("Email_register"))
                                                             .child("Gender").setValue(getIntent().getStringExtra("gender_register"));
-                                                    databaseReference.child("UserDetails").child(getIntent().getStringExtra("username_register"))
+                                                    databaseReference.child(getIntent().getStringExtra("Email_register"))
                                                             .child("Email").setValue(getIntent().getStringExtra("Email_register"));
-                                                    databaseReference.child("UserDetails").child(getIntent().getStringExtra("username_register"))
+                                                    databaseReference.child(getIntent().getStringExtra("Email_register"))
                                                             .child("Contact").setValue(getIntent().getStringExtra("mobile_register"));
-                                                    databaseReference.child("UserDetails").child(getIntent().getStringExtra("username_register"))
+                                                    databaseReference.child(getIntent().getStringExtra("Email_register"))
                                                             .child("Address").setValue(getIntent().getStringExtra("Address_register"));
                                                 }
 

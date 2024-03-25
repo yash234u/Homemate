@@ -7,11 +7,13 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.homemate.splash.SplashActivity_2;
@@ -26,6 +28,9 @@ import com.squareup.picasso.Picasso;
 public class ProfileFragment extends Fragment{
     private Button logout;
     private ImageView imageView;
+    TextView username,email;
+    String data_email,username_display;
+    DatabaseReference databaseReference;
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,19 +39,36 @@ public class ProfileFragment extends Fragment{
 
       logout = (Button) view.findViewById(R.id.logout);
       imageView=view.findViewById(R.id.profile_image);
+      email=view.findViewById(R.id.profilepage_email);
+      username=view.findViewById(R.id.profilepage_username);
+      data_email= PreferenceManager.getDefaultSharedPreferences(getContext()).getString("Email_from_login","").replace(".",",");
+      email.setText(data_email.toString().replace(",","."));
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference();
-        DatabaseReference getImage = databaseReference.child("UserDetails").child("yash234").child("Profile");
+        databaseReference = firebaseDatabase.getReference();
+        DatabaseReference getImage = databaseReference.
+                child("UserDetails").child(data_email).child("Profile");
 
         getImage.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String link = dataSnapshot.getValue(String.class);
-                Picasso.get().load(link).into(imageView);
+                //Picasso.get().load(link).into(imageView);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(getContext(), "Error Loading Image", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        databaseReference.child("UserDetails").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                username.setText(snapshot.child(data_email).child("UserName").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getContext(), "Fail to get data.", Toast.LENGTH_SHORT).show();
             }
         });
         logout.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +82,4 @@ public class ProfileFragment extends Fragment{
         });
         return view;
     }
-
-
 }
