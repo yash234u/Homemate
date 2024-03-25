@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.preference.PreferenceManager;
@@ -16,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.homemate.Profile.MyAccountActivity;
 import com.example.homemate.splash.SplashActivity_2;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -31,6 +33,7 @@ public class ProfileFragment extends Fragment{
     TextView username,email;
     String data_email,username_display;
     DatabaseReference databaseReference;
+    ConstraintLayout my_account;
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,6 +44,7 @@ public class ProfileFragment extends Fragment{
       imageView=view.findViewById(R.id.profile_image);
       email=view.findViewById(R.id.profilepage_email);
       username=view.findViewById(R.id.profilepage_username);
+      my_account=view.findViewById(R.id.My_Account);
       data_email= PreferenceManager.getDefaultSharedPreferences(getContext()).getString("Email_from_login","").replace(".",",");
       email.setText(data_email.toString().replace(",","."));
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
@@ -48,6 +52,13 @@ public class ProfileFragment extends Fragment{
         DatabaseReference getImage = databaseReference.
                 child("UserDetails").child(data_email).child("Profile");
 
+        my_account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getContext(), MyAccountActivity.class);
+                startActivity(intent);
+            }
+        });
         getImage.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
