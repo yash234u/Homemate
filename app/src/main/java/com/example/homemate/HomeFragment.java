@@ -17,6 +17,7 @@ import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.homemate.Categories.CategoryAdapter;
 import com.example.homemate.Categories.CategoryModel;
+import com.example.homemate.Categories.VideoAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -37,6 +38,11 @@ public class HomeFragment extends Fragment {
 
     CategoryAdapter categoryAdapter;
     List<CategoryModel> categoryModelList;
+
+    // Videos RecyclerView
+    RecyclerView videoRecyclerView;
+    VideoAdapter videoAdapter;
+    List<Integer> videoList;
 
     //Firebase Connect
     private DatabaseReference db;
@@ -92,6 +98,18 @@ public class HomeFragment extends Fragment {
                 // Handle errors
             }
         });
+
+        // Video RecyclerView
+        videoRecyclerView = root.findViewById(R.id.new_product_rec);
+        videoList = new ArrayList<>();
+        videoList.add(R.raw.v1); // Add video resources statically
+        videoList.add(R.raw.v2);
+        videoList.add(R.raw.v3);
+        videoList.add(R.raw.v4);
+
+        videoAdapter = new VideoAdapter(getContext(), videoList);
+        videoRecyclerView.setAdapter(videoAdapter);
+        videoRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
         return root;
     }

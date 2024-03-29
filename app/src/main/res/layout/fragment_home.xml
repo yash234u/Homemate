@@ -96,23 +96,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/amethysta"
-                android:text="Category"
-                android:textSize="21sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/category_see_all"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/amethysta"
-                android:gravity="end"
-                android:text="See All"
-                android:textColor="@color/colorAccent"
-                android:textSize="18sp"
+                android:text="Our Popular Categories"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -122,7 +110,7 @@
             android:layout_width="wrap_content"
             android:layout_height="130dp"
             android:layout_marginLeft="9dp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="9dp" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -149,7 +137,7 @@
                         android:layout_marginLeft="9dp"
                         android:fontFamily="@font/amethysta"
                         android:text="New Products"
-                        android:textSize="21sp"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -159,17 +147,6 @@
                         android:layout_marginLeft="9dp"
                         android:text="We provide best products." />
 
-                    <TextView
-                        android:id="@+id/newProducts_see_all"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginRight="8dp"
-                        android:fontFamily="@font/amethysta"
-                        android:text="See All"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
                 </RelativeLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
