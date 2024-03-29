@@ -1,5 +1,6 @@
 package com.example.homemate.Categories;
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +35,12 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
     public void onBindViewHolder(@NonNull VideoViewHolder holder, int position) {
         holder.videoView.setVideoURI(Uri.parse("android.resource://" + context.getPackageName() + "/" + videoList.get(position)));
         holder.videoView.start();
+        holder.videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                holder.videoView.start();
+            }
+        });
     }
 
     @Override

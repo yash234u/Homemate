@@ -1,5 +1,6 @@
 package com.example.homemate;
 
+import android.annotation.SuppressLint;
 import android.media.Image;
 import android.os.Bundle;
 
@@ -8,9 +9,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
@@ -35,33 +38,34 @@ public class HomeFragment extends Fragment {
 
     //Popular Categories Recycler View
     RecyclerView catRecyclerview;
-
     CategoryAdapter categoryAdapter;
     List<CategoryModel> categoryModelList;
 
-    // Videos RecyclerView
+    // Videos RecyclerViews
     RecyclerView videoRecyclerView;
     VideoAdapter videoAdapter;
     List<Integer> videoList;
 
+    String data_email;
+    TextView displayname;
     //Firebase Connect
     private DatabaseReference db;
-
 
     public HomeFragment(){
 
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         catRecyclerview = root.findViewById(R.id.rec_category);
-
+        displayname=root.findViewById(R.id.Display_UserName);
         db = FirebaseDatabase.getInstance().getReference();
 
-
+        data_email= PreferenceManager.getDefaultSharedPreferences(getContext()).getString("Email_from_login","").replace(".",",");
         //image slider
         ImageSlider imageSlider = root.findViewById(R.id.image_slider);
         List<SlideModel> slideModels = new ArrayList<>();
@@ -70,7 +74,7 @@ public class HomeFragment extends Fragment {
         slideModels.add(new SlideModel(R.drawable.banner2, ScaleTypes.CENTER_CROP));
         slideModels.add(new SlideModel(R.drawable.banner3, ScaleTypes.CENTER_CROP));
 
-        imageSlider.setImageList(slideModels);
+        imageSlider.setImageList(slideModels,ScaleTypes.FIT);
 
 
         //Popular Categories
@@ -99,6 +103,17 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        db.child("UserDetails").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                displayname.setText("Hi,"+snapshot.child(data_email).child("UserName").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         // Video RecyclerView
         videoRecyclerView = root.findViewById(R.id.new_product_rec);
         videoList = new ArrayList<>();

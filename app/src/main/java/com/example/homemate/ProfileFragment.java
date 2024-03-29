@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.homemate.Profile.Address.AddressActivity;
 import com.example.homemate.Profile.MyAccountActivity;
 import com.example.homemate.splash.SplashActivity_2;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,7 +26,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
 
 public class ProfileFragment extends Fragment{
     private Button logout;
@@ -33,7 +33,7 @@ public class ProfileFragment extends Fragment{
     TextView username,email;
     String data_email,username_display;
     DatabaseReference databaseReference;
-    ConstraintLayout my_account;
+    ConstraintLayout my_account,address_profile;
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,7 +44,9 @@ public class ProfileFragment extends Fragment{
       imageView=view.findViewById(R.id.profile_image);
       email=view.findViewById(R.id.profilepage_email);
       username=view.findViewById(R.id.profilepage_username);
-      my_account=view.findViewById(R.id.My_Account);
+      my_account=view.findViewById(R.id.My_Account_Profile);
+      address_profile=view.findViewById(R.id.Address_Profile);
+
       data_email= PreferenceManager.getDefaultSharedPreferences(getContext()).getString("Email_from_login","").replace(".",",");
       email.setText(data_email.toString().replace(",","."));
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
@@ -56,6 +58,13 @@ public class ProfileFragment extends Fragment{
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getContext(), MyAccountActivity.class);
+                startActivity(intent);
+            }
+        });
+        address_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getContext(), AddressActivity.class);
                 startActivity(intent);
             }
         });
