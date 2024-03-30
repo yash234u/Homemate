@@ -91,8 +91,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 app:iss_auto_cycle="true"
-                app:iss_delay="100"
                 app:iss_corner_radius="20"
+                app:iss_delay="100"
                 app:iss_period="1000" />
 
         </androidx.cardview.widget.CardView>
@@ -145,9 +145,10 @@
                         android:id="@+id/new_product_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
                         android:layout_marginLeft="9dp"
                         android:fontFamily="@font/amethysta"
-                        android:text="New Products"
+                        android:text="Thoughtful curations"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -155,8 +156,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/new_product_name"
+                        android:layout_marginTop="1dp"
                         android:layout_marginLeft="9dp"
-                        android:text="We provide best products." />
+                        android:text="Of our finest experiences" />
 
                 </RelativeLayout>
 
@@ -196,18 +198,6 @@
                     android:layout_below="@+id/popular_products"
                     android:layout_marginLeft="9dp"
                     android:text="We provide best products." />
-
-                <TextView
-                    android:id="@+id/popular_see_all"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginRight="8dp"
-                    android:fontFamily="@font/amethysta"
-                    android:text="See All"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
             </RelativeLayout>
 
             <androidx.recyclerview.widget.RecyclerView

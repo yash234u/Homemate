@@ -73,6 +73,7 @@ public class HomeFragment extends Fragment {
         slideModels.add(new SlideModel(R.drawable.banner1, ScaleTypes.CENTER_CROP));
         slideModels.add(new SlideModel(R.drawable.banner2, ScaleTypes.CENTER_CROP));
         slideModels.add(new SlideModel(R.drawable.banner3, ScaleTypes.CENTER_CROP));
+        slideModels.add(new SlideModel(R.drawable.banner4, ScaleTypes.CENTER_CROP));
 
         imageSlider.setImageList(slideModels,ScaleTypes.FIT);
 
