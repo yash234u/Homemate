@@ -1,6 +1,7 @@
 package com.example.homemate.Categories;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.homemate.Categories.AC.ACActivity;
+import com.example.homemate.Categories.Appliance.ApplianceActivity;
+import com.example.homemate.Categories.Carpenter.CarpenterActivity;
+import com.example.homemate.Categories.Electricians.ElectriciansActivity;
+import com.example.homemate.Categories.Plumbing.PlumbingActivity;
 import com.example.homemate.R;
 
 import java.util.List;
@@ -37,6 +43,54 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewHo
 
         Glide.with(context).load(list.get(position).getImg_url()).into(holder.catImg);
         holder.catName.setText(list.get(position).getName());
+
+        switch (position){
+            case 0:
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent=new Intent(view.getContext(), ApplianceActivity.class);
+                        view.getContext().startActivity(intent);
+                    }
+                });
+                break;
+            case 1:
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                       // Intent intent=new Intent(view.getContext(), ACActivity.class);
+                      //  view.getContext().startActivity(intent);
+                    }
+                });
+                break;
+            case 2:
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent=new Intent(view.getContext(), CarpenterActivity.class);
+                        view.getContext().startActivity(intent);
+                    }
+                });
+                break;
+            case 3:
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent=new Intent(view.getContext(), ElectriciansActivity.class);
+                        view.getContext().startActivity(intent);
+                    }
+                });
+                break;
+            case 4:
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent=new Intent(view.getContext(), PlumbingActivity.class);
+                        view.getContext().startActivity(intent);
+                    }
+                });
+                break;
+        }
 
     }
 
