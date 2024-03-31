@@ -87,6 +87,15 @@
                 android:textStyle="bold">
             </TextView>
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profilepic"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/profileicon"
+                android:layout_gravity="center"
+                android:layout_margin="10dp">
+            </de.hdodenhof.circleimageview.CircleImageView>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtname"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -168,19 +177,6 @@
                 android:inputType="number"
                 android:hint="Contact"
                 app:startIconDrawable="@drawable/baseline_contacts_24"
-                android:layout_margin="15dp">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtaddress"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Address"
-                app:startIconDrawable="@drawable/baseline_home_24"
                 android:layout_margin="15dp">
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"

@@ -47,7 +47,6 @@ public class UserRegistrationActivity extends AppCompatActivity {
     private TextInputLayout fullname;
     private TextInputLayout Email;
     private TextInputLayout Contact;
-    private TextInputLayout Address;
     private TextInputLayout username;
     private TextInputLayout password;
     private TextInputLayout rpassword;
@@ -72,6 +71,12 @@ public class UserRegistrationActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,11 +85,10 @@ public class UserRegistrationActivity extends AppCompatActivity {
 
         fullname = findViewById(R.id.txtname);
         registerforcustomer = findViewById(R.id.btnregister);
-      //  imageView = findViewById(R.id.profilepic);
+        imageView = findViewById(R.id.profilepic);
         Gender = (RadioGroup) findViewById(R.id.GenderRadio);
         Email = findViewById(R.id.txtemail);
         Contact = findViewById(R.id.txtcontact);
-        Address = findViewById(R.id.txtaddress);
         username = findViewById(R.id.txtusername);
         password = findViewById(R.id.txtpass);
         rpassword = findViewById(R.id.txtpass);
@@ -97,17 +101,17 @@ public class UserRegistrationActivity extends AppCompatActivity {
         int selectedgender = Gender.getCheckedRadioButtonId();
         Genbutton = findViewById(selectedgender);
 
-     /*   imageView.setOnClickListener(new View.OnClickListener() {
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                SelectImage();
             }
-        });*/
+        });
 
         registerforcustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!validateFullName() | !validateEmail() | !validateAddress() | !validateGender() | !validatePhoneNumber() | !validatePassword() | !validateRPassword()) {
+                if (!validateFullName() | !validateEmail() | !validateGender() | !validatePhoneNumber() | !validatePassword() | !validateRPassword()) {
                     Toast.makeText(UserRegistrationActivity.this, "Please Fill all the details", Toast.LENGTH_SHORT).show();
                 } else {
                     progressBar_register.setVisibility(View.VISIBLE);
@@ -135,16 +139,13 @@ public class UserRegistrationActivity extends AppCompatActivity {
                                 @Override
                                 public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                                     super.onCodeSent(s, forceResendingToken);
-                                    progressBar_register.setVisibility(View.GONE);
-                                    registerforcustomer.setVisibility(View.VISIBLE);
-
                                     databaseReference.child("UserDetails").addListenerForSingleValueEvent(new ValueEventListener() {
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                                             if (snapshot.hasChild(Email.getEditText().getText().toString().replace(".",","))) {
                                                 Toast.makeText(UserRegistrationActivity.this, "User already exist", Toast.LENGTH_SHORT).show();
                                             } else {
-                                                //uploadImage();
+                                                uploadImage();
                                                 Toast.makeText(UserRegistrationActivity.this, "Code sent", Toast.LENGTH_SHORT).show();
                                                 Intent intent = new Intent(getApplicationContext(), otpverification_for_registerActivity.class);
                                                 intent.putExtra("fullname_register", fullname.getEditText().getText().toString());
@@ -152,11 +153,12 @@ public class UserRegistrationActivity extends AppCompatActivity {
                                                 intent.putExtra("gender_register", Genbutton.getText().toString());
                                                 intent.putExtra("Email_register", Email.getEditText().getText().toString().replace(".",","));
                                                 intent.putExtra("mobile_register", Contact.getEditText().getText().toString());
-                                                intent.putExtra("Address_register", Address.getEditText().getText().toString());
                                                 intent.putExtra("password_register", password.getEditText().getText().toString());
-                                                //intent.putExtra("profile_img_register",filePath);
+                                                intent.putExtra("profile_img_register",filePath);
                                                 intent.putExtra("backendotp", s);
                                                 clear();
+                                                progressBar_register.setVisibility(View.GONE);
+                                                registerforcustomer.setVisibility(View.VISIBLE);
                                                 startActivity(intent);
                                             }
                                         }
@@ -174,7 +176,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
             }
         });
     }
-/*
+
     private void SelectImage() {
         // Defining Implicit Intent to mobile gallery
         Intent intent = new Intent();
@@ -207,11 +209,11 @@ public class UserRegistrationActivity extends AppCompatActivity {
         if (filePath != null) {
 
             // Code for showing progressDialog while uploading
-            ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setTitle("Uploading...");
-            progressDialog.show();
+          //  ProgressDialog progressDialog = new ProgressDialog(this);
+          //  progressDialog.setTitle("Uploading...");
+            //progressDialog.show();
 
-            StorageReference ref = storageReference.child("UserProfilePictures/" +mAuth.getCurrentUser().getUid()+"/profile.jpg");
+            StorageReference ref = storageReference.child("UserProfilePictures/"+username.getEditText().getText().toString()+"/profile.jpg");
 
             // adding listeners on upload
             ref.putFile(filePath)
@@ -223,9 +225,9 @@ public class UserRegistrationActivity extends AppCompatActivity {
                                     Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
                                     while (!uriTask.isComplete()) ;
                                     Uri url = uriTask.getResult();
-                                    databaseReference.child("UserDetails").child(username.getEditText().getText().toString()).child("Profile").setValue(url.toString());
+                                    databaseReference.child("UserDetails").child(Email.getEditText().getText().toString().replace(".",",")).child("Profile").setValue(url.toString());
 
-                                    progressDialog.dismiss();
+                                    //progressDialog.dismiss();
                                     Toast.makeText(UserRegistrationActivity.this, "Image Uploaded!!", Toast.LENGTH_SHORT).show();
                                 }
                             })
@@ -235,7 +237,7 @@ public class UserRegistrationActivity extends AppCompatActivity {
                         public void onFailure(@NonNull Exception e) {
 
                             // Error in occurred ,Image not uploaded
-                            progressDialog.dismiss();
+                          //  progressDialog.dismiss();
                             Toast.makeText(UserRegistrationActivity.this, "Failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     })
@@ -247,12 +249,12 @@ public class UserRegistrationActivity extends AppCompatActivity {
                         public void onProgress(
                                 UploadTask.TaskSnapshot taskSnapshot) {
                             double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-                            progressDialog.setMessage("Registering " + (int) progress + "%");
+                           // progressDialog.setMessage("Registering " + (int) progress + "%");
                         }
                     });
         }
     }
-*/
+
     private boolean validateFullName() {
         String val = fullname.getEditText().getText().toString().trim();
         if (val.isEmpty()) {
@@ -308,18 +310,6 @@ public class UserRegistrationActivity extends AppCompatActivity {
         }
     }
 
-    private boolean validateAddress() {
-        String val = Address.getEditText().getText().toString();
-        if (val.isEmpty()) {
-            Address.setError("Please enter your Address");
-            return false;
-        } else {
-            Address.setError(null);
-            Address.setErrorEnabled(false);
-            return true;
-        }
-    }
-
     private boolean validatePassword() {
         String val = password.getEditText().getText().toString().trim();
         String checkPassword = "^" +
@@ -358,9 +348,8 @@ public class UserRegistrationActivity extends AppCompatActivity {
     public void clear() {
         fullname.getEditText().setText("");
         Contact.getEditText().setText("");
-        Address.getEditText().setText("");
         Gender.clearCheck();
-//        imageView.setImageResource(0);
+        imageView.setImageResource(0);
         password.getEditText().setText("");
         rpassword.getEditText().setText("");
     }

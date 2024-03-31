@@ -51,6 +51,7 @@ public class HomeFragment extends Fragment {
     //Firebase Connect
     private DatabaseReference db;
 
+
     public HomeFragment(){
 
     }
@@ -107,6 +108,7 @@ public class HomeFragment extends Fragment {
         db.child("UserDetails").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.hasChild(data_email))
                 displayname.setText("Hi,"+snapshot.child(data_email).child("UserName").getValue().toString());
             }
 

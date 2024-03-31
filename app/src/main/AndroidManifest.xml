@@ -17,6 +17,9 @@
         android:theme="@style/Theme.HOMEMATE"
         tools:targetApi="31">
         <activity
+            android:name=".Profile.SettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".Profile.Address.AddAdressActivity"
             android:exported="false" />
         <activity

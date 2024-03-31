@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.homemate.Profile.Address.AddressActivity;
 import com.example.homemate.Profile.MyAccountActivity;
+import com.example.homemate.Profile.SettingsActivity;
 import com.example.homemate.splash.SplashActivity_2;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -26,6 +27,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 public class ProfileFragment extends Fragment{
     private Button logout;
@@ -33,7 +35,7 @@ public class ProfileFragment extends Fragment{
     TextView username,email;
     String data_email,username_display;
     DatabaseReference databaseReference;
-    ConstraintLayout my_account,address_profile;
+    ConstraintLayout my_account,address_profile,settings_profile;
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,6 +48,7 @@ public class ProfileFragment extends Fragment{
       username=view.findViewById(R.id.profilepage_username);
       my_account=view.findViewById(R.id.My_Account_Profile);
       address_profile=view.findViewById(R.id.Address_Profile);
+      settings_profile=view.findViewById(R.id.Settings_Profile);
 
       data_email= PreferenceManager.getDefaultSharedPreferences(getContext()).getString("Email_from_login","").replace(".",",");
       email.setText(data_email.toString().replace(",","."));
@@ -68,11 +71,18 @@ public class ProfileFragment extends Fragment{
                 startActivity(intent);
             }
         });
+        settings_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getContext(), SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
         getImage.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String link = dataSnapshot.getValue(String.class);
-                //Picasso.get().load(link).into(imageView);
+                Picasso.get().load(link).into(imageView);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -81,8 +91,10 @@ public class ProfileFragment extends Fragment{
         });
 
         databaseReference.child("UserDetails").addValueEventListener(new ValueEventListener() {
+            @SuppressLint("SuspiciousIndentation")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.hasChild(data_email))
                 username.setText(snapshot.child(data_email).child("UserName").getValue().toString());
             }
 

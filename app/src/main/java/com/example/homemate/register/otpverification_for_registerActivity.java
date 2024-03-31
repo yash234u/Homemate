@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.homemate.BottomNavigationActivity;
 import com.example.homemate.R;
+import com.example.homemate.login.LoginActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -44,7 +46,7 @@ public class otpverification_for_registerActivity extends AppCompatActivity {
     private StorageReference storageReference;
     private TextView resend;
     private FirebaseAuth mAuth;
-   // private Uri filePath_upload;
+    private Uri filePath_upload;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -67,7 +69,7 @@ public class otpverification_for_registerActivity extends AppCompatActivity {
         storageReference = FirebaseStorage.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
-        //filePath_upload=getIntent().getParcelableExtra("profile_img_register");
+        filePath_upload=getIntent().getParcelableExtra("profile_img_register");
 
         TextView textView = findViewById(R.id.mobilenumber_register);
         textView.setText(String.format(
@@ -135,8 +137,6 @@ public class otpverification_for_registerActivity extends AppCompatActivity {
                                                             .child("Email").setValue(getIntent().getStringExtra("Email_register"));
                                                     databaseReference.child(getIntent().getStringExtra("Email_register"))
                                                             .child("Contact").setValue(getIntent().getStringExtra("mobile_register"));
-                                                    databaseReference.child(getIntent().getStringExtra("Email_register"))
-                                                            .child("Address").setValue(getIntent().getStringExtra("Address_register"));
                                                 }
 
                                                 @Override
@@ -144,9 +144,10 @@ public class otpverification_for_registerActivity extends AppCompatActivity {
                                                     Toast.makeText(otpverification_for_registerActivity.this, "Error Connecting to Database", Toast.LENGTH_SHORT).show();
                                                 }
                                             });
-                                            Intent intent = new Intent(getApplicationContext(), BottomNavigationActivity.class);
+                                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                             startActivity(intent);
+                                            Toast.makeText(otpverification_for_registerActivity.this, "User Registered", Toast.LENGTH_SHORT).show();
                                         } else {
                                             Toast.makeText(otpverification_for_registerActivity.this, "Enter the correct otp", Toast.LENGTH_SHORT).show();
                                         }
