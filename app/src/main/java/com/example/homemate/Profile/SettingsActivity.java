@@ -52,9 +52,12 @@ public class SettingsActivity extends AppCompatActivity {
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         loadingDailog.startDialog();
                                        FirebaseDatabase.getInstance().getReference()
+                                               .child("SavedAddress").child(data_email)
+                                                .removeValue();
+                                       FirebaseDatabase.getInstance().getReference()
                                                 .child("UserDetails")
                                                 .child(data_email)
-                                                .setValue(null)
+                                                .removeValue()
                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                    @Override
                                                    public void onSuccess(Void unused) {
@@ -65,6 +68,7 @@ public class SettingsActivity extends AppCompatActivity {
                                                                        if (task.isSuccessful()){
                                                                            loadingDailog.dismissDiaLog();
                                                                            Intent intent=new Intent(SettingsActivity.this, SplashActivity_2.class);
+                                                                           intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                                            startActivity(intent);
                                                                            finish();
                                                                        }

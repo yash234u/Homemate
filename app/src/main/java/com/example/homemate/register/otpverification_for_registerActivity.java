@@ -126,7 +126,6 @@ public class otpverification_for_registerActivity extends AppCompatActivity {
                                             databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                                                     databaseReference.child(getIntent().getStringExtra("Email_register"))
                                                             .child("FullName").setValue(getIntent().getStringExtra("fullname_register"));
                                                     databaseReference.child(getIntent().getStringExtra("Email_register"))

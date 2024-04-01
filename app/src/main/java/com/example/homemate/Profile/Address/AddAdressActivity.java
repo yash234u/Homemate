@@ -32,8 +32,8 @@ public class AddAdressActivity extends AppCompatActivity {
 
         add_address=findViewById(R.id.editText_address_add);
         savebtn=findViewById(R.id.save_button);
-        databaseReference= FirebaseDatabase.getInstance().getReference("UserDetails");
-        String key=databaseReference.child("UserDetails").push().getKey();
+        databaseReference= FirebaseDatabase.getInstance().getReference();
+        String key=databaseReference.child("SavedAddress").push().getKey();
         data_email= PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("Email_from_login","").replace(".",",");
 
         savebtn.setOnClickListener(new View.OnClickListener() {
@@ -43,7 +43,7 @@ public class AddAdressActivity extends AppCompatActivity {
                 databaseReference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        databaseReference.child(data_email).child("SavedAddress").
+                        databaseReference.child("SavedAddress").child(data_email).
                                 child(key).child("address").setValue(add_address.getText().toString());
                         Toast.makeText(AddAdressActivity.this, "Saved successfully", Toast.LENGTH_SHORT).show();
                     }

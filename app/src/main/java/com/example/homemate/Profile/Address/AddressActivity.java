@@ -40,7 +40,7 @@ public class AddressActivity extends AppCompatActivity {
         data_email= PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("Email_from_login","").replace(".",",");
         floatingActionButton=findViewById(R.id.floatingActionButton);
         recyclerView=findViewById(R.id.rv_address);
-        databaseReference= FirebaseDatabase.getInstance().getReference("UserDetails").child(data_email).child("SavedAddress");
+        databaseReference= FirebaseDatabase.getInstance().getReference("SavedAddress").child(data_email);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list=new ArrayList<>();
         addressAdapter=new AddressAdapter(this,list);

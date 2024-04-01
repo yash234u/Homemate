@@ -33,7 +33,7 @@ public class ProfileFragment extends Fragment{
     private Button logout;
     private ImageView imageView;
     TextView username,email;
-    String data_email,username_display;
+    String data_email;
     DatabaseReference databaseReference;
     ConstraintLayout my_account,address_profile,settings_profile;
     @SuppressLint("MissingInflatedId")
@@ -94,8 +94,8 @@ public class ProfileFragment extends Fragment{
             @SuppressLint("SuspiciousIndentation")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.hasChild(data_email))
-                username.setText(snapshot.child(data_email).child("UserName").getValue().toString());
+                if (snapshot.hasChild(data_email)){
+                username.setText(snapshot.child(data_email).child("UserName").getValue().toString());}
             }
 
             @Override

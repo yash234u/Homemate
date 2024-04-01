@@ -106,6 +106,7 @@ public class HomeFragment extends Fragment {
         });
 
         db.child("UserDetails").addValueEventListener(new ValueEventListener() {
+            @SuppressLint("SuspiciousIndentation")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.hasChild(data_email))
