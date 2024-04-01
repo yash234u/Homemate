@@ -17,9 +17,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.homemate.Profile.AboutUsctivity;
 import com.example.homemate.Profile.Address.AddressActivity;
 import com.example.homemate.Profile.MyAccountActivity;
 import com.example.homemate.Profile.SettingsActivity;
+import com.example.homemate.Profile.TipsandTricksActivity;
 import com.example.homemate.splash.SplashActivity_2;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -35,7 +37,7 @@ public class ProfileFragment extends Fragment{
     TextView username,email;
     String data_email;
     DatabaseReference databaseReference;
-    ConstraintLayout my_account,address_profile,settings_profile;
+    ConstraintLayout my_account,address_profile,settings_profile,Tipsandtricks_Profile,AboutUs_Profile;
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,6 +51,8 @@ public class ProfileFragment extends Fragment{
       my_account=view.findViewById(R.id.My_Account_Profile);
       address_profile=view.findViewById(R.id.Address_Profile);
       settings_profile=view.findViewById(R.id.Settings_Profile);
+      Tipsandtricks_Profile=view.findViewById(R.id.Tipsandtricks_Profile);
+      AboutUs_Profile=view.findViewById(R.id.AboutUs_Profile);
 
       data_email= PreferenceManager.getDefaultSharedPreferences(getContext()).getString("Email_from_login","").replace(".",",");
       email.setText(data_email.toString().replace(",","."));
@@ -75,6 +79,20 @@ public class ProfileFragment extends Fragment{
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getContext(), SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+        Tipsandtricks_Profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getContext(), TipsandTricksActivity.class);
+                startActivity(intent);
+            }
+        });
+        AboutUs_Profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getContext(), AboutUsctivity.class);
                 startActivity(intent);
             }
         });

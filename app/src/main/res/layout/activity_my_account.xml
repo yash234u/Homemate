@@ -11,26 +11,18 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="156dp"
+        android:layout_height="200dp"
         android:gravity="center"
         android:orientation="vertical"
         android:paddingTop="15dp">
 
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:src="@drawable/img" />
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="52dp"
-            android:layout_marginTop="8dp"
-            android:text="Minnie Faisal"
-            android:textColor="@color/black"
-            android:textSize="35dp"
-            android:textStyle="bold" />
+            android:id="@+id/account_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@drawable/profileicon" />
 
         <View
             android:layout_width="match_parent"
