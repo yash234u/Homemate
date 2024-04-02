@@ -31,7 +31,6 @@
         android:id="@+id/footer_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/footer"
         android:textSize="16sp"
         android:textColor="#ffffff"
         android:background="#333333"
