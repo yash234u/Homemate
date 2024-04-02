@@ -1,41 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:context=".Profile.TipsandTricksActivity">
 
     <TextView
-        android:id="@+id/tips_and_tricks_title"
-        android:layout_width="match_parent"
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tips and Tricks"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:background="@color/brown"
-        android:padding="16dp"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
-
-    <ExpandableListView
-        android:id="@+id/expandable_list_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:divider="@android:color/white"
-        android:dividerHeight="10dp"/>
-
-    <TextView
-        android:id="@+id/footer_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/footer"
-        android:textSize="16sp"
-        android:textColor="#ffffff"
-        android:background="#333333"
-        android:padding="8dp"
-        android:textAlignment="center"/>
-
-</LinearLayout>
+        android:text="Tips and tricks"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

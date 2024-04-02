@@ -2,6 +2,59 @@
     <string name="app_name">Home Mate</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="footer">© 2024 HomeMate. All rights reserved.</string>
+    <string name="aboutus_intro">Welcome to HomeMate, your one-stop destination for all your home service needs.
+        Whether it\'s fixing a leaky faucet, getting your home cleaned, or revamping your interiors,
+        HomeMate is here to connect you with skilled professionals who can get the job done efficiently and reliably.
+        With our user-friendly app, booking a service is as easy as a few taps on your smartphone.
+
+        Why Choose HomeMate?
+
+Convenience: Say goodbye to the hassle of searching for reliable service providers.
+            With HomeMate, you can book a service anytime, anywhere, right from the comfort of your home.
+
+Verified Professionals: We understand the importance of security and reliability when it comes to home services.
+        That\'s why all our service providers are thoroughly background-checked and verified to ensure your safety and satisfaction.
+
+Wide Range of Services: From plumbing and electrical work to home cleaning, painting, and carpentry,
+        HomeMate offers a comprehensive range of services to cater to all your home maintenance and improvement needs.
+
+Transparent Pricing: No hidden costs or surprises! With HomeMate, you get upfront pricing quotes for all services,
+                     so you know exactly what to expect before booking.
+
+Quality Assurance: We strive for excellence in every service we provide.
+        Our professionals are skilled, experienced, and committed to delivering high-quality workmanship
+        that exceeds your expectations.
+
+
+Easy Payment Options:
+        Pay for services hassle-free through our secure payment gateway. We accept various payment methods,
+        including credit/debit cards, net banking, and digital wallets, for your convenience.
+
+24/7 Customer Support: Have a question or need assistance? Our dedicated customer support team is
+        available round-the-clock to address your queries and ensure a seamless experience.
+
+
+How It Works:
+
+Browse Services: Explore our wide range of services and choose the one that fits your needs.
+
+Select Date &amp;amp; Time: Select your preferred date and time for the service, and we'll match you with a suitable professional.
+
+Book Service: Confirm your booking with a few simple taps, and you're all set!
+
+Track Service: Track the status of your service in real-time and stay updated every step of the way.
+
+Rate &amp; Review: Once the service is completed, share your feedback to help us improve and assist other users in making informed decisions.
+
+Download HomeMate Today!
+
+Experience the convenience and reliability of HomeMate for all your home service needs. Download the app now and take the first step towards a hassle-free home maintenance experience. Welcome to the HomeMate family, where quality meets convenience!
+
+
+
+
+
+
+    </string>
 
 </resources>

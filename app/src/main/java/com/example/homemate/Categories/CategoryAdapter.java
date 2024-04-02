@@ -90,7 +90,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewHo
                     }
                 });
                 break;
-
         }
 
     }
