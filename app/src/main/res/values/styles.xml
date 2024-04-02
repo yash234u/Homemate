@@ -8,4 +8,9 @@
     <style name="Rounded_full">
         <item name="cornerSize">10%</item>
     </style>
+
+    <style name="Rounded_half">
+        <item name="cornerSizeBottomRight">10%</item>
+    </style>
+
 </resources>
