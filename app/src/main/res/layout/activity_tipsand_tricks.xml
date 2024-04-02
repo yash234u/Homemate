@@ -33,6 +33,7 @@
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:textColor="#ffffff"
+        android:text="20224@HomeMate.All Rights Reserved."
         android:background="#333333"
         android:padding="8dp"
         android:textAlignment="center"/>
