@@ -56,6 +56,9 @@
             android:name=".Categories.FullViewActivity"
             android:exported="false" />
         <activity
+            android:name=".ServiceProvider.ServiceProviderActivity"
+            android:exported="false" />
+        <activity
             android:name=".Categories.Plumbing.PlumbingActivity"
             android:exported="false" />
         <activity

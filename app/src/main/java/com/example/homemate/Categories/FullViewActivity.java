@@ -2,38 +2,64 @@ package com.example.homemate.Categories;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.homemate.R;
-
-import org.w3c.dom.Text;
+import com.example.homemate.ServiceProvider.ServiceProviderActivity;
 
 public class FullViewActivity extends AppCompatActivity {
 
-    TextView fullviewdescname,fullviewpricename,fullviewservicename,includeservice,excludeservice;
+    TextView fullviewdescname, fullviewpricename, fullviewservicename, includeservice, excludeservice;
     ImageView fullviewimage;
+    Button bookButton;
+    private String serviceCategory;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_view);
 
-        fullviewdescname=(TextView) findViewById(R.id.fullviewdescname);
-        fullviewservicename=(TextView) findViewById(R.id.fullviewservicename);
-        fullviewpricename=(TextView) findViewById(R.id.fullviewpricename);
-        fullviewimage=(ImageView) findViewById(R.id.fullviewimage);
-        includeservice=(TextView) findViewById(R.id.included_in_service);
-        excludeservice=(TextView) findViewById(R.id.excluded_in_service);
+        fullviewdescname = findViewById(R.id.fullviewdescname);
+        fullviewservicename = findViewById(R.id.fullviewservicename);
+        fullviewpricename = findViewById(R.id.fullviewpricename);
+        fullviewimage = findViewById(R.id.fullviewimage);
+        includeservice = findViewById(R.id.included_in_service);
+        excludeservice = findViewById(R.id.excluded_in_service);
+        bookButton = findViewById(R.id.book_button);
 
-        fullviewservicename.setText(getIntent().getStringExtra("servicename"));
-        fullviewdescname.setText(getIntent().getStringExtra("servicedesc"));
-        fullviewpricename.setText(" ₹ "+getIntent().getStringExtra("serviceprice"));
-        Glide.with(getApplicationContext()).load(getIntent().getStringExtra("serviceimage")).into(fullviewimage);
-        includeservice.setText(getIntent().getStringExtra("serviceinclude"));
-        excludeservice.setText(getIntent().getStringExtra("serviceexclude"));
+        // Retrieve service details and category from intent
+        Intent intent = getIntent();
+        String serviceName = intent.getStringExtra("servicename");
+        String serviceDesc = intent.getStringExtra("servicedesc");
+        String servicePrice = intent.getStringExtra("serviceprice");
+        String serviceImage = intent.getStringExtra("serviceimage");
+        String serviceInclude = intent.getStringExtra("serviceinclude");
+        String serviceExclude = intent.getStringExtra("serviceexclude");
+        String category = intent.getStringExtra("category");
 
+        // Set service details in UI
+        fullviewservicename.setText(serviceName);
+        fullviewdescname.setText(serviceDesc);
+        fullviewpricename.setText("₹ " + servicePrice);
+        Glide.with(getApplicationContext()).load(serviceImage).into(fullviewimage);
+        includeservice.setText(serviceInclude);
+        excludeservice.setText(serviceExclude);
+
+        // Handle "Book" button click
+        bookButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FullViewActivity.this, ServiceProviderActivity.class);
+                intent.putExtra("serviceCategory", category); // Pass the selected service category
+                startActivity(intent);
+            }
+        });
 
     }
 }

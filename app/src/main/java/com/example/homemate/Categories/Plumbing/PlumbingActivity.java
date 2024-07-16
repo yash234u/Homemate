@@ -45,7 +45,7 @@ public class PlumbingActivity extends AppCompatActivity {
 
         servicesList=new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mainAdapter=new MainAdapter(this,servicesList);
+        mainAdapter=new MainAdapter(this,servicesList,"Plumbing");
         recyclerView.setAdapter(mainAdapter);
 
         progressBar.setVisibility(View.VISIBLE);

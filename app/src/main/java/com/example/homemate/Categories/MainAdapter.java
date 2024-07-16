@@ -29,7 +29,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.myViewHolder> 
     private Context context;
     private ArrayList<Model> servicesList;
 
-    public MainAdapter(Context context, ArrayList<Model> servicesList) {
+    public MainAdapter(Context context, ArrayList<Model> servicesList, String category) {
         this.context = context;
         this.servicesList = servicesList;
     }
@@ -60,6 +60,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.myViewHolder> 
                 intent.putExtra("serviceimage",model.getImage());
                 intent.putExtra("serviceinclude",model.getInclude());
                 intent.putExtra("serviceexclude",model.getExclude());
+                intent.putExtra("category",model.getCategory());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
             }

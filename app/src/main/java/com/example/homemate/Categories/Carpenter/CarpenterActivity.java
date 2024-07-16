@@ -40,7 +40,7 @@ public class CarpenterActivity extends AppCompatActivity {
 
         servicesList=new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mainAdapter=new MainAdapter(this,servicesList);
+        mainAdapter=new MainAdapter(this,servicesList,"Carpenter");
         recyclerView.setAdapter(mainAdapter);
         progressBar.setVisibility(View.VISIBLE);
 

@@ -39,7 +39,7 @@ public class ApplianceActivity extends AppCompatActivity {
 
         servicesList=new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mainAdapter=new MainAdapter(this,servicesList);
+        mainAdapter=new MainAdapter(this,servicesList, "Appliance");
         recyclerView.setAdapter(mainAdapter);
 
         progressBar.setVisibility(View.VISIBLE);

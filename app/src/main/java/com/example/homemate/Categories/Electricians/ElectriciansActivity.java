@@ -41,7 +41,7 @@ public class ElectriciansActivity extends AppCompatActivity {
 
         servicesList=new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mainAdapter=new MainAdapter(this,servicesList);
+        mainAdapter=new MainAdapter(this,servicesList,"Electricians");
         recyclerView.setAdapter(mainAdapter);
         progressBar.setVisibility(View.VISIBLE);
 

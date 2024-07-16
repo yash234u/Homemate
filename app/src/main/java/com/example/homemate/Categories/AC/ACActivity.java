@@ -1,14 +1,13 @@
 package com.example.homemate.Categories.AC;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ProgressBar;
 
 import com.example.homemate.Categories.MainAdapter;
 import com.example.homemate.Categories.Model;
@@ -28,38 +27,37 @@ public class ACActivity extends AppCompatActivity {
     ArrayList<Model> servicesList;
     DatabaseReference databaseReference;
     MainAdapter mainAdapter;
-    @SuppressLint("MissingInflatedId")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acactivity);
 
-        progressBar=(ProgressBar)findViewById(R.id.progress_bar_service);
-        recyclerView=(RecyclerView) findViewById(R.id.rv_AC);
+        progressBar = findViewById(R.id.progress_bar_service);
+        recyclerView = findViewById(R.id.rv_AC);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        databaseReference= FirebaseDatabase.getInstance().getReference("Categories").child("AC_services_repair");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Categories").child("AC_services_repair");
 
-        servicesList=new ArrayList<>();
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mainAdapter=new MainAdapter(this,servicesList);
+        servicesList = new ArrayList<>();
+        mainAdapter = new MainAdapter(this, servicesList,"AC");
         recyclerView.setAdapter(mainAdapter);
         progressBar.setVisibility(View.VISIBLE);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot:snapshot.getChildren())
-                {
-                    Model model=dataSnapshot.getValue(Model.class);
+                servicesList.clear(); // Clear the list before adding new data
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Model model = dataSnapshot.getValue(Model.class);
                     servicesList.add(model);
-                    progressBar.setVisibility(View.GONE);
                 }
                 mainAdapter.notifyDataSetChanged();
+                progressBar.setVisibility(View.GONE);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                progressBar.setVisibility(View.GONE);
             }
         });
     }

@@ -8,6 +8,16 @@ public class Model {
     String include;
     String exclude;
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    String category;
+
     public String getExclude() {
         return exclude;
     }
@@ -34,11 +44,12 @@ public class Model {
 
     String tagline;
 
-    public Model(String name, String desc, String image, String price) {
+    public Model(String name, String desc, String image, String price, String category) {
         this.name = name;
         this.desc = desc;
         this.image = image;
         this.price = price;
+        this.category = category;
     }
 
     public Model() {
