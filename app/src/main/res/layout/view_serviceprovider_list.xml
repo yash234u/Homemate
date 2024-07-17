@@ -12,15 +12,13 @@
         android:layout_height="wrap_content"
         android:padding="15dp">
 
-        <com.google.android.material.imageview.ShapeableImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_marginBottom="10dp"
             android:id="@+id/SPImage"
-            android:src="@mipmap/ic_launcher"
             android:scaleType="centerCrop"
-            android:layout_centerVertical="true"
-            app:shapeAppearanceOverlay="@style/Rounded_full">
-        </com.google.android.material.imageview.ShapeableImageView>
+            android:src="@drawable/profileicon"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -28,7 +26,8 @@
             android:id="@+id/SPName"
             android:text="SPName"
             android:textStyle="bold"
-            android:textSize="22sp"
+            android:textSize="20sp"
+            android:layout_marginTop="15dp"
             android:layout_toRightOf="@id/SPImage"
             android:layout_marginLeft="15dp">
         </TextView>
@@ -38,56 +37,72 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/SPName"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"
             android:layout_toRightOf="@id/SPImage"
             android:fontFamily="@font/roboto_regular"
             android:text="Contact:"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/Services"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/SPImage"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Services: "
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/SPServices"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/SPContact"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="15dp"
-            android:layout_toRightOf="@id/SPImage"
+            android:layout_below="@+id/SPImage"
+            android:layout_toRightOf="@+id/Services"
+            android:layout_marginLeft="1dp"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="Services:"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textSize="16sp"
+            android:textStyle="normal"/>
+
+        <TextView
+            android:id="@+id/Experience"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/SPServices"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Experience: "
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/SPExperience"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/SPServices"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="15dp"
-            android:layout_toRightOf="@id/SPImage"
+            android:layout_toRightOf="@+id/Experience"
+            android:layout_marginLeft="1dp"
+            android:layout_marginBottom="5dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="Experience:"
-            android:textSize="18sp"
-            android:textStyle="bold"></TextView>
+            android:textSize="15sp"
+            android:textStyle="normal"></TextView>
 
         <RatingBar
             android:id="@+id/ratingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="240dp"
+            android:layout_height="43dp"
             android:layout_below="@+id/SPExperience"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="1dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="2dp"
-            android:layout_toRightOf="@id/SPImage"/>
+            android:numStars="5"
+            android:stepSize="0.5"
+            android:layout_centerHorizontal="true"
+            android:isIndicator="true"
+            android:scaleX="0.7"
+            android:scaleY="0.7"/>
 
 
     </RelativeLayout>

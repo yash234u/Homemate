@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,11 +36,16 @@ public class SP_Adapter extends RecyclerView.Adapter<SP_Adapter.ViewHolder> {
         SP_Model spModel = serviceProviderList.get(position);
         holder.spName.setText(spModel.getSp_name());
         holder.spContact.setText("Contact: "+spModel.getSp_contact());
-        holder.spServices.setText("Services: "+spModel.getSp_services());
-        holder.spExperience.setText("Experience: "+spModel.getSp_experience());
+        holder.spServices.setText(spModel.getSp_services());
+        holder.spExperience.setText(spModel.getSp_experience());
         Glide.with(context).load(spModel.getSp_img())
                 .into(holder.spImage);
         // Set other fields as needed (ratings, image, etc.)
+        if (spModel.getSp_ratings() != null && !spModel.getSp_ratings().isEmpty()) {
+            holder.spRating.setRating(Float.parseFloat(spModel.getSp_ratings()));
+        } else {
+            holder.spRating.setRating(0); // Default to 0 if no rating is available
+        }
     }
 
     @Override
@@ -51,6 +57,7 @@ public class SP_Adapter extends RecyclerView.Adapter<SP_Adapter.ViewHolder> {
 
         TextView spName, spContact, spServices, spExperience;
         ImageView spImage;
+        RatingBar spRating;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -59,6 +66,8 @@ public class SP_Adapter extends RecyclerView.Adapter<SP_Adapter.ViewHolder> {
             spServices = itemView.findViewById(R.id.SPServices);
             spExperience = itemView.findViewById(R.id.SPExperience);
             spImage = itemView.findViewById(R.id.SPImage);
+            spRating = itemView.findViewById(R.id.ratingBar);
+
             // Initialize other views as needed
         }
     }
