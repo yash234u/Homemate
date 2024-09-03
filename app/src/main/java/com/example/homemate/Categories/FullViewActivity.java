@@ -57,6 +57,15 @@ public class FullViewActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(FullViewActivity.this, ServiceProviderActivity.class);
                 intent.putExtra("serviceCategory", category); // Pass the selected service category
+
+                // Pass all service details to ServiceProviderActivity
+                intent.putExtra("servicename", serviceName);
+                intent.putExtra("servicedesc", serviceDesc);
+                intent.putExtra("serviceprice", servicePrice);
+                intent.putExtra("serviceimage", serviceImage);
+                intent.putExtra("serviceinclude", serviceInclude);
+                intent.putExtra("serviceexclude", serviceExclude);
+
                 startActivity(intent);
             }
         });

@@ -1,5 +1,6 @@
 package com.example.homemate.ServiceProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -35,6 +36,20 @@ public class ServiceProviderActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         serviceProviderList = new ArrayList<>();
         spAdapter = new SP_Adapter(this, serviceProviderList);
+        recyclerView.setAdapter(spAdapter);
+
+        // Retrieve service details and category from intent
+        Intent intent = getIntent();
+        String serviceName = intent.getStringExtra("servicename");
+        String serviceDesc = intent.getStringExtra("servicedesc");
+        String servicePrice = intent.getStringExtra("serviceprice");
+        String serviceImage = intent.getStringExtra("serviceimage");
+        String serviceInclude = intent.getStringExtra("serviceinclude");
+        String serviceExclude = intent.getStringExtra("serviceexclude");
+        String category = intent.getStringExtra("category");
+
+        // Initialize adapter with all service details
+        spAdapter = new SP_Adapter(this, serviceProviderList, serviceName, serviceDesc, servicePrice, serviceImage, serviceInclude, serviceExclude, category);
         recyclerView.setAdapter(spAdapter);
 
         // Receive service category from FullViewActivity
