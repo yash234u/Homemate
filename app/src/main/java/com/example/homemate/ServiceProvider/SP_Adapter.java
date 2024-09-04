@@ -50,18 +50,39 @@ public class SP_Adapter extends RecyclerView.Adapter<SP_Adapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         SP_Model spModel = serviceProviderList.get(position);
         holder.spName.setText(spModel.getSp_name());
-        holder.spContact.setText("Contact: "+spModel.getSp_contact());
+
+        // Handle sp_contact
+        if (spModel.getSp_contact() != null) {
+            holder.spContact.setText("Contact: " + String.valueOf(spModel.getSp_contact()));
+        } else {
+            holder.spContact.setText("Contact: N/A");
+        }
+
         holder.spServices.setText(spModel.getSp_services());
         holder.spExperience.setText(spModel.getSp_experience());
+
+        // Load image using Glide
         Glide.with(context).load(spModel.getSp_img())
                 .into(holder.spImage);
-        // Set other fields as needed (ratings, image, etc.)
-        if (spModel.getSp_ratings() != null && !spModel.getSp_ratings().isEmpty()) {
-            holder.spRating.setRating(Float.parseFloat(spModel.getSp_ratings()));
+
+        // Handle sp_ratings
+        if (spModel.getSp_ratings() != null) {
+            float ratingValue = 0;
+            try {
+                if (spModel.getSp_ratings() instanceof Long) {
+                    ratingValue = ((Long) spModel.getSp_ratings()).floatValue();
+                } else if (spModel.getSp_ratings() instanceof Double) {
+                    ratingValue = ((Double) spModel.getSp_ratings()).floatValue();
+                } else if (spModel.getSp_ratings() instanceof String) {
+                    ratingValue = Float.parseFloat((String) spModel.getSp_ratings());
+                }
+                holder.spRating.setRating(ratingValue);
+            } catch (NumberFormatException e) {
+                holder.spRating.setRating(0); // Default to 0 if parsing fails
+            }
         } else {
             holder.spRating.setRating(0); // Default to 0 if no rating is available
         }
-
 
         // Set an OnClickListener on the CardView to handle clicks
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -72,10 +93,10 @@ public class SP_Adapter extends RecyclerView.Adapter<SP_Adapter.ViewHolder> {
 
                 // Pass data to BookingActivity using Intent extras
                 intent.putExtra("sp_name", spModel.getSp_name());
-                intent.putExtra("sp_contact", spModel.getSp_contact());
+                intent.putExtra("sp_contact", String.valueOf(spModel.getSp_contact()));
                 intent.putExtra("sp_experience", spModel.getSp_experience());
                 intent.putExtra("sp_img", spModel.getSp_img());
-                intent.putExtra("sp_ratings", spModel.getSp_ratings());
+                intent.putExtra("sp_ratings", String.valueOf(spModel.getSp_ratings()));
                 intent.putExtra("sp_services", spModel.getSp_services());
 
                 // Pass Service details data to BookingActivity using Intent extras
