@@ -17,6 +17,12 @@
         android:theme="@style/Theme.HOMEMATE"
         tools:targetApi="31">
         <activity
+            android:name=".BookingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Booking.BookServiceProviderActivity"
+            android:exported="false" />
+        <activity
             android:name=".Profile.AboutUsctivity"
             android:exported="false" />
         <activity

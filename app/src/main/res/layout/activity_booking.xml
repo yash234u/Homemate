@@ -1,87 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp">
 
-    <ImageView
-        android:id="@+id/spImageView"
-        android:layout_width="196dp"
-        android:layout_height="177dp"
-        android:layout_gravity="center" />
-
-    <TextView
-        android:id="@+id/spNameTextView"
-        android:layout_width="364dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="8dp"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/spContactTextView"
-        android:layout_width="366dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="4dp" />
-
-    <TextView
-        android:id="@+id/spExperienceTextView"
-        android:layout_width="366dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="4dp" />
-
-    <TextView
-        android:id="@+id/spServicesTextView"
-        android:layout_width="373dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="4dp" />
-
-    <RatingBar
-        android:id="@+id/spRatingBar"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:numStars="5"
-        android:layout_marginTop="8dp"
-        android:isIndicator="true"
-        android:scaleX="1.0"
-        android:scaleY="1.0"
-        android:stepSize="0.5" />
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/serviceNameTextView"
-        android:layout_width="379dp"
-        android:layout_height="42dp" />
+        <!-- Service Provider Details -->
+        <ImageView
+            android:id="@+id/spImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:contentDescription="Service Provider Image" />
 
-    <TextView
-        android:id="@+id/serviceDescTextView"
-        android:layout_width="375dp"
-        android:layout_height="38dp" />
+        <TextView
+            android:id="@+id/spNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Service Provider Name"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_gravity="center" />
 
-    <TextView
-        android:id="@+id/servicePriceTextView"
-        android:layout_width="379dp"
-        android:layout_height="38dp" />
+        <TextView
+            android:id="@+id/spContactTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact: 1234567890"
+            android:layout_gravity="center" />
 
-    <TextView
-        android:id="@+id/serviceIncludeTextView"
-        android:layout_width="382dp"
-        android:layout_height="40dp" />
+        <TextView
+            android:id="@+id/spExperienceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Experience: 5 Years"
+            android:layout_gravity="center" />
 
-    <TextView
-        android:id="@+id/serviceExcludeTextView"
-        android:layout_width="379dp"
-        android:layout_height="40dp" />
+        <RatingBar
+            android:id="@+id/spRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="0.5"
+            android:rating="4.5"
+            android:layout_gravity="center" />
 
-    <TextView
-        android:id="@+id/categoryTextView"
-        android:layout_width="379dp"
-        android:layout_height="37dp" />
+        <TextView
+            android:id="@+id/spServicesTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Services Offered: Plumbing, Electrical"
+            android:layout_gravity="center" />
 
-    <ImageView
-        android:id="@+id/serviceImageView"
-        android:layout_width="224dp"
-        android:layout_height="196dp" />
+        <!-- Service Details -->
+        <ImageView
+            android:id="@+id/serviceImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:contentDescription="Service Image" />
 
+        <TextView
+            android:id="@+id/serviceNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Service Name"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_gravity="center" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/serviceDescTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Service Description"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/servicePriceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: $100"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/serviceIncludeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Includes: Material, Labor"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/serviceExcludeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Excludes: Extra charges for urgent service"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/categoryTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Category: Home Services"
+            android:layout_gravity="center" />
+
+        <!-- Date Picker and Booking Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Date:"
+            android:textSize="18sp"
+            android:textColor="@color/colorAccent"
+            android:layout_marginTop="16dp"/>
+
+        <DatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:calendarTextColor="@color/colorAccent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Time:"
+            android:textSize="18sp"
+            android:textColor="@color/colorAccent"
+            android:layout_marginTop="16dp"/>
+
+        <Spinner
+            android:id="@+id/timeSlotSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/bookButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Book Now"
+            android:textColor="@android:color/white"
+            android:background="@color/colorAccent"
+            android:padding="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+</ScrollView>
