@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Booking.Final_Booking__details_Activity">
+
+      <ScrollView
+          android:id="@+id/scrollView2"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                  <TextView
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:text="Booking Details"
+                      android:textSize="30dp"
+                      android:gravity="center"
+                      android:textStyle="bold"
+                      android:layout_margin="10dp">
+                  </TextView>
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="30dp"
+                      android:text="Service Details"
+                      android:textSize="20dp"
+                      android:textStyle="bold"></TextView>
+
+                  <androidx.cardview.widget.CardView
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="15dp"
+                      app:cardCornerRadius="25dp">
+
+                        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/white"
+                            android:backgroundTint="@color/peach"
+                            android:orientation="vertical"
+                            android:padding="20dp">
+
+                              <!-- Name of provider -->
+                              <LinearLayout
+                                  android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/service_provider_service_label"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Service"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/service_provider_service_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="end"
+                                        android:text="service_of_service_provider"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="16sp" />
+                              </LinearLayout>
+
+                              <View
+                                  android:layout_width="match_parent"
+                                  android:layout_height="2dp"
+                                  android:layout_marginTop="8dp"
+                                  android:layout_marginBottom="8dp"
+                                  android:background="@drawable/dotted_line"></View>
+
+                              <!-- Name of provider -->
+                              <LinearLayout
+                                  android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:layout_marginTop="8dp"
+                                  android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/service_provider_provider_label"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Provider"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/service_provider_provider_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="end"
+                                        android:text="name_of_service_provider"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="16sp" />
+                              </LinearLayout>
+
+                              <!-- Contact of provider -->
+                              <LinearLayout
+                                  android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:layout_marginTop="8dp"
+                                  android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/service_provider_contact_label"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Contact"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/service_provider_contact_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="end"
+                                        android:text="contact_of_service_provider"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="16sp" />
+                              </LinearLayout>
+
+                        </LinearLayout>
+                  </androidx.cardview.widget.CardView>
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="30dp"
+                      android:text="Payment Summary"
+                      android:textSize="20dp"
+                      android:textStyle="bold"></TextView>
+
+                  <androidx.cardview.widget.CardView
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="15dp"
+                      app:cardCornerRadius="25dp">
+
+                        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/white"
+                            android:backgroundTint="@color/peach"
+                            android:orientation="vertical"
+                            android:padding="20dp">
+
+                              <!-- Item Total Section -->
+                              <LinearLayout
+                                  android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/item_total_label"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Item Total"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/item_total_price"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="end"
+                                        android:text="₹343"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="16sp" />
+                              </LinearLayout>
+
+                              <!-- Delivery Fee Section -->
+                              <LinearLayout
+                                  android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:layout_marginTop="8dp"
+                                  android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/delivery_fee_label"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Delivery Fee | Hours"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/delivery_fee_price"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="end"
+                                        android:text="₹0.00"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="16sp" />
+
+                              </LinearLayout>
+
+                              <!-- Delivery Fee Info -->
+                              <TextView
+                                  android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:layout_marginTop="4dp"
+                                  android:layout_marginBottom="8dp"
+                                  android:text="This fee fairly goes to our delivery partners for delivering services"
+                                  android:textColor="@android:color/darker_gray"
+                                  android:textSize="14sp" />
+
+                              <View
+                                  android:layout_width="match_parent"
+                                  android:layout_height="2dp"
+                                  android:layout_marginTop="8dp"
+                                  android:layout_marginBottom="8dp"
+                                  android:background="@drawable/dotted_line"></View>
+
+                              <!-- Platform Fee Section -->
+                              <LinearLayout
+                                  android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:layout_marginTop="8dp"
+                                  android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/platform_fee_label"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Platform fee"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/platform_fee_price"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="end"
+                                        android:text="₹0.00"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="16sp" />
+                              </LinearLayout>
+
+                              <!-- GST and Restaurant Charges Section -->
+                              <LinearLayout
+                                  android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:layout_marginTop="8dp"
+                                  android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/gst_charges_label"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="GST and Other Charges"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/gst_charges_price"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="end"
+                                        android:text="₹0.00"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="16sp" />
+                              </LinearLayout>
+
+                              <View
+                                  android:layout_width="match_parent"
+                                  android:layout_height="2dp"
+                                  android:layout_marginTop="16dp"
+                                  android:background="@drawable/dotted_line"></View>
+
+                              <!-- To Pay Section -->
+                              <LinearLayout
+                                  android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:layout_marginTop="16dp"
+                                  android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/to_pay_label"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="To Pay"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/to_pay_price"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="end"
+                                        android:text="₹343"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
+                              </LinearLayout>
+
+                        </LinearLayout>
+
+                  </androidx.cardview.widget.CardView>
+
+                  <TextView
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginStart="13dp"
+                      android:layout_marginTop="16dp"
+                      android:layout_marginEnd="13dp"
+                      android:text="Review your booking details and address to avoid cancellations"
+                      android:textSize="15dp"
+                      android:textStyle="bold">
+                  </TextView>
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="20dp"
+                      android:text="Additional Instructions"
+                      android:textSize="20dp"
+                      android:textStyle="bold"></TextView>
+
+
+                  <com.google.android.material.textfield.TextInputLayout
+                      android:id="@+id/email_login"
+                      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="15dp"
+                      android:hint="Type here...">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:isScrollContainer="true"
+                            android:minHeight="100dp" />
+                  </com.google.android.material.textfield.TextInputLayout>
+
+                  <androidx.appcompat.widget.AppCompatButton
+                      android:id="@+id/Booking_confirm_btn"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="bottom"
+                      android:layout_marginTop="20dp"
+                      android:layout_marginBottom="20dp"
+                      android:text="Book Now"
+                      android:background="@drawable/buttoncolor"
+                      android:textAllCaps="false"
+                      android:textColor="@color/black"
+                      android:textSize="16sp" />
+
+            </LinearLayout>
+      </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

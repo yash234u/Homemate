@@ -18,7 +18,7 @@ public class FullViewActivity extends AppCompatActivity {
     TextView fullviewdescname, fullviewpricename, fullviewservicename, includeservice, excludeservice;
     ImageView fullviewimage;
     Button bookButton;
-    private String serviceCategory;
+    private String Price_to_send_for_booking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

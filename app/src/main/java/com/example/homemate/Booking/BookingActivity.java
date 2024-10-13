@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.example.homemate.R;
+import com.example.homemate.register.UserRegistrationActivity;
 
 public class BookingActivity extends AppCompatActivity {
 
@@ -100,8 +101,12 @@ public class BookingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String selectedTime = timeSlotSpinner.getSelectedItem().toString();
-                Toast.makeText(BookingActivity.this, "Booking confirmed for " + selectedTime + " on "
-                        + datePicker.getDayOfMonth() + "/" + (datePicker.getMonth() + 1) + "/" + datePicker.getYear(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(BookingActivity.this, "Booking confirmed for " + selectedTime + " on "
+                  //      + datePicker.getDayOfMonth() + "/" + (datePicker.getMonth() + 1) + "/" + datePicker.getYear(), Toast.LENGTH_LONG).show();
+
+                Intent intent=new Intent(getApplicationContext(), Final_Booking__details_Activity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
             }
         });
     }
