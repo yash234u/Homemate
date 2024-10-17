@@ -11,12 +11,7 @@
         android:padding="16dp">
 
         <!-- Service Provider Details -->
-        <ImageView
-            android:id="@+id/spImageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:contentDescription="Service Provider Image" />
+
 
         <TextView
             android:id="@+id/spNameTextView"
@@ -34,36 +29,7 @@
             android:text="Contact: 1234567890"
             android:layout_gravity="center" />
 
-        <TextView
-            android:id="@+id/spExperienceTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Experience: 5 Years"
-            android:layout_gravity="center" />
-
-        <RatingBar
-            android:id="@+id/spRatingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="5"
-            android:stepSize="0.5"
-            android:rating="4.5"
-            android:layout_gravity="center" />
-
-        <TextView
-            android:id="@+id/spServicesTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Services Offered: Plumbing, Electrical"
-            android:layout_gravity="center" />
-
         <!-- Service Details -->
-        <ImageView
-            android:id="@+id/serviceImageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:contentDescription="Service Image" />
 
         <TextView
             android:id="@+id/serviceNameTextView"
@@ -75,32 +41,12 @@
             android:layout_gravity="center" />
 
         <TextView
-            android:id="@+id/serviceDescTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Service Description"
-            android:layout_gravity="center" />
-
-        <TextView
             android:id="@+id/servicePriceTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Price: $100"
             android:layout_gravity="center" />
 
-        <TextView
-            android:id="@+id/serviceIncludeTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Includes: Material, Labor"
-            android:layout_gravity="center" />
-
-        <TextView
-            android:id="@+id/serviceExcludeTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Excludes: Extra charges for urgent service"
-            android:layout_gravity="center" />
 
         <TextView
             android:id="@+id/categoryTextView"

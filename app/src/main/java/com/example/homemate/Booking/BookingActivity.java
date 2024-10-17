@@ -1,7 +1,9 @@
 package com.example.homemate.Booking;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -34,54 +36,30 @@ public class BookingActivity extends AppCompatActivity {
         // Initialize views for Service Provider
         spName = findViewById(R.id.spNameTextView);
         spContact = findViewById(R.id.spContactTextView);
-        spExperience = findViewById(R.id.spExperienceTextView);
-        spServices = findViewById(R.id.spServicesTextView);
-        spImage = findViewById(R.id.spImageView);
-        spRating = findViewById(R.id.spRatingBar);
 
         // Initialize views for Service details
         serviceName = findViewById(R.id.serviceNameTextView);
-        serviceDesc = findViewById(R.id.serviceDescTextView);
         servicePrice = findViewById(R.id.servicePriceTextView);
-        serviceInclude = findViewById(R.id.serviceIncludeTextView);
-        serviceExclude = findViewById(R.id.serviceExcludeTextView);
         category = findViewById(R.id.categoryTextView);
-        serviceImage = findViewById(R.id.serviceImageView);
 
         // Retrieve Service Provider data from Intent
         Intent intent = getIntent();
         String name = intent.getStringExtra("sp_name");
         String contact = intent.getStringExtra("sp_contact");
-        String experience = intent.getStringExtra("sp_experience");
-        String img = intent.getStringExtra("sp_img");
-        String ratings = intent.getStringExtra("sp_ratings");
-        String services = intent.getStringExtra("sp_services");
 
         // Retrieve Service data from Intent
         String serviceNameStr = intent.getStringExtra("servicename");
-        String serviceDescStr = intent.getStringExtra("servicedesc");
         String servicePriceStr = intent.getStringExtra("serviceprice");
-        String serviceImgStr = intent.getStringExtra("serviceimage");
-        String serviceIncludeStr = intent.getStringExtra("serviceinclude");
-        String serviceExcludeStr = intent.getStringExtra("serviceexclude");
         String categoryStr = intent.getStringExtra("category");
 
         // Set data to views for Service Provider
         spName.setText(name != null ? name : "N/A");
         spContact.setText(contact != null ? contact : "N/A");
-        spExperience.setText(experience != null ? experience : "N/A");
-        spServices.setText(services != null ? services : "N/A");
-        Glide.with(this).load(img).into(spImage);
-        spRating.setRating(ratings != null ? Float.parseFloat(ratings) : 0);
 
         // Set data to views for Service details
         serviceName.setText(serviceNameStr != null ? serviceNameStr : "N/A");
-        serviceDesc.setText(serviceDescStr != null ? serviceDescStr : "N/A");
         servicePrice.setText(servicePriceStr != null ? servicePriceStr : "N/A");
-        serviceInclude.setText(serviceIncludeStr != null ? serviceIncludeStr : "N/A");
-        serviceExclude.setText(serviceExcludeStr != null ? serviceExcludeStr : "N/A");
         category.setText(categoryStr != null ? categoryStr : "N/A");
-        Glide.with(this).load(serviceImgStr).into(serviceImage);
 
         // Initialize DatePicker and Spinner for booking
         datePicker = findViewById(R.id.datePicker);
@@ -96,6 +74,12 @@ public class BookingActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         timeSlotSpinner.setAdapter(adapter);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPrefs_BookingActivity", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("selected_sp_name_from_booking_activity",name);
+        editor.putString("selected_sp_contact_from_booking_activity",contact);
+        editor.apply();
+
         // Set listener for the booking button
         bookButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,8 +87,7 @@ public class BookingActivity extends AppCompatActivity {
                 String selectedTime = timeSlotSpinner.getSelectedItem().toString();
                 //Toast.makeText(BookingActivity.this, "Booking confirmed for " + selectedTime + " on "
                   //      + datePicker.getDayOfMonth() + "/" + (datePicker.getMonth() + 1) + "/" + datePicker.getYear(), Toast.LENGTH_LONG).show();
-
-                Intent intent=new Intent(getApplicationContext(), Final_Booking__details_Activity.class);
+                Intent intent=new Intent(getApplicationContext(), SelectAddressActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }

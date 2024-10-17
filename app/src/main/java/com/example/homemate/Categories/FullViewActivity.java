@@ -3,6 +3,7 @@ package com.example.homemate.Categories;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -58,6 +59,11 @@ public class FullViewActivity extends AppCompatActivity {
                 Intent intent = new Intent(FullViewActivity.this, ServiceProviderActivity.class);
                 intent.putExtra("serviceCategory", category); // Pass the selected service category
 
+                SharedPreferences sharedPreferences = getSharedPreferences("MySharedPrefs_FullViewActivity", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("selected_service_name_from_FullView_activity",serviceName);
+                editor.putString("selected_service_price_from_FullView_activity",servicePrice);
+                editor.apply();
                 // Pass all service details to ServiceProviderActivity
                 intent.putExtra("servicename", serviceName);
                 intent.putExtra("servicedesc", serviceDesc);

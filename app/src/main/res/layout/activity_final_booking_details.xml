@@ -142,6 +142,64 @@
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:layout_marginTop="30dp"
+                      android:text="Address"
+                      android:textSize="20dp"
+                      android:textStyle="bold"></TextView>
+
+                  <androidx.cardview.widget.CardView
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="15dp"
+                      app:cardCornerRadius="25dp">
+
+                        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/white"
+                            android:backgroundTint="@color/peach"
+                            android:orientation="vertical"
+                            android:padding="20dp">
+
+                              <!-- Address -->
+                              <RelativeLayout
+                                  android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:padding="0dp">
+
+                                    <ImageView
+                                        android:id="@+id/imageView1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/baseline_home_24"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_alignParentLeft="true"></ImageView>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Home"
+                                        android:layout_marginStart="10dp"
+                                        android:layout_marginTop="3dp"
+                                        android:layout_toRightOf="@+id/imageView1"
+                                        android:layout_alignParentTop="true"></TextView>
+
+                                    <TextView
+                                        android:id="@+id/Selected_Address_label"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@+id/imageView1"
+                                        android:layout_marginTop="10dp"
+                                        android:layout_marginStart="5dp"
+                                        android:text="hi welcome to the app, this is your address"></TextView>
+                              </RelativeLayout>
+
+                        </LinearLayout>
+                  </androidx.cardview.widget.CardView>
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="30dp"
                       android:text="Payment Summary"
                       android:textSize="20dp"
                       android:textStyle="bold"></TextView>
