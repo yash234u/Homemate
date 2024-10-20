@@ -16,8 +16,9 @@ import com.example.homemate.R;
 public class Final_Booking__details_Activity extends AppCompatActivity {
 
     private Button Booking_btn;
-    private TextView SelectedAddress,ServiceProvider,ServiceSelected,ServiceProviderContact,ServicePriceitemtotal,ServicePriceToPay;
-    String serviceprovider,servicename,serviceprovidercontact,serviceprice;
+    private TextView SelectedAddress,ServiceProvider,ServiceSelected,ServiceProviderContact,ServicePriceitemtotal,ServicePriceToPay,
+            ServiceTime,ServiceDate;
+    String serviceprovider,servicename,serviceprovidercontact,serviceprice,servicetime,servicedate;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,8 @@ public class Final_Booking__details_Activity extends AppCompatActivity {
         ServiceProvider=findViewById(R.id.service_provider_provider_text);
         ServiceProviderContact=findViewById(R.id.service_provider_contact_text);
         ServicePriceToPay=findViewById(R.id.to_pay_price);
+        ServiceTime=findViewById(R.id.service_provider_time_text);
+        ServiceDate=findViewById(R.id.service_provider_date_text);
 
         Booking_btn=findViewById(R.id.Booking_confirm_btn);
         Intent intent = getIntent();
@@ -40,6 +43,8 @@ public class Final_Booking__details_Activity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("MySharedPrefs_BookingActivity", MODE_PRIVATE);
         serviceprovider = sharedPreferences.getString("selected_sp_name_from_booking_activity", "");
         serviceprovidercontact = sharedPreferences.getString("selected_sp_contact_from_booking_activity", "");
+        servicetime= sharedPreferences.getString("selected_time_from_booking_activity","");
+        servicedate=sharedPreferences.getString("selected_date_from_booking_activity","");
 
         SharedPreferences sharedPreferences2 = getSharedPreferences("MySharedPrefs_FullViewActivity", MODE_PRIVATE);
         servicename=sharedPreferences2.getString("selected_service_name_from_FullView_activity","");
@@ -50,6 +55,8 @@ public class Final_Booking__details_Activity extends AppCompatActivity {
         ServiceProvider.setText(serviceprovider);
         ServiceProviderContact.setText(serviceprovidercontact);
         ServicePriceToPay.setText("₹"+serviceprice);
+        ServiceTime.setText(servicetime);
+        ServiceDate.setText(servicedate);
         Booking_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
