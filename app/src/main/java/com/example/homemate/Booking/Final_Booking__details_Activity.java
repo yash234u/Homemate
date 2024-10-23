@@ -85,6 +85,7 @@ public class Final_Booking__details_Activity extends AppCompatActivity {
                         databaseReference.child("BookingDetails").child(data_email).child(key).child("time").setValue(servicetime);
                         databaseReference.child("BookingDetails").child(data_email).child(key).child("price").setValue(serviceprice);
                         databaseReference.child("BookingDetails").child(data_email).child(key).child("instructions").setValue(Instructions.getText().toString());
+                        databaseReference.child("BookingDetails").child(data_email).child(key).child("status").setValue("ongoing");
                         Toast.makeText(Final_Booking__details_Activity.this, "Booking successfully", Toast.LENGTH_SHORT).show();
                     }
 

@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.homemate.Profile.AboutUsctivity;
 import com.example.homemate.Profile.Address.AddressActivity;
+import com.example.homemate.Profile.Bookings.BookingActivity;
 import com.example.homemate.Profile.MyAccountActivity;
 import com.example.homemate.Profile.SettingsActivity;
 import com.example.homemate.Profile.TipsandTricksActivity;
@@ -37,7 +38,7 @@ public class ProfileFragment extends Fragment{
     TextView username,email;
     String data_email;
     DatabaseReference databaseReference;
-    ConstraintLayout my_account,address_profile,settings_profile,Tipsandtricks_Profile,AboutUs_Profile;
+    ConstraintLayout my_account,booking_profile,address_profile,settings_profile,Tipsandtricks_Profile,AboutUs_Profile;
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,6 +54,7 @@ public class ProfileFragment extends Fragment{
       settings_profile=view.findViewById(R.id.Settings_Profile);
       Tipsandtricks_Profile=view.findViewById(R.id.Tipsandtricks_Profile);
       AboutUs_Profile=view.findViewById(R.id.AboutUs_Profile);
+      booking_profile=view.findViewById(R.id.Booking_profile);
 
       data_email= PreferenceManager.getDefaultSharedPreferences(getContext()).getString("Email_from_login","").replace(".",",");
       email.setText(data_email.toString().replace(",","."));
@@ -65,6 +67,13 @@ public class ProfileFragment extends Fragment{
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getContext(), MyAccountActivity.class);
+                startActivity(intent);
+            }
+        });
+        booking_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getContext(), BookingActivity.class);
                 startActivity(intent);
             }
         });
