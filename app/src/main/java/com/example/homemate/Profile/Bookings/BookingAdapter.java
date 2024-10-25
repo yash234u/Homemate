@@ -31,20 +31,41 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.viewHold
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        Model model=list.get(position);
-        holder.s_name.setText(model.getS_category());
-        holder.date.setText(model.getDate());
-        holder.time.setText(model.getTime());
-        holder.price.setText("₹"+model.getPrice());
-        holder.status.setText(model.getStatus());
-        if(holder.status.getText().equals("ongoing")){
-            holder.status.setTextColor(Color.parseColor("#2196F3"));
-        } else if (holder.status.getText().equals("completed")) {
-            holder.status.setTextColor(Color.parseColor("#4CAF50"));
-        } else if (holder.status.getText().equals("cancelled")) {
-            holder.status.setTextColor(Color.parseColor("#F44336"));
+        Model model = list.get(position);
+
+        // Show or hide each TextView based on whether the corresponding data is available
+        if (model.getServiceName() != null && !model.getServiceName().isEmpty()) {
+            holder.s_name.setText(model.getServiceName());
+            holder.s_name.setVisibility(View.VISIBLE);  // Show if not null
+        } else {
+            holder.s_name.setVisibility(View.GONE);  // Hide if null or empty
         }
+
+        if (model.getServiceDate() != null && !model.getServiceDate().isEmpty()) {
+            holder.date.setText(model.getServiceDate());
+            holder.date.setVisibility(View.VISIBLE);  // Show if not null
+        } else {
+            holder.date.setVisibility(View.GONE);  // Hide if null or empty
+        }
+
+        if (model.getServiceTime() != null && !model.getServiceTime().isEmpty()) {
+            holder.time.setText(model.getServiceTime());
+            holder.time.setVisibility(View.VISIBLE);  // Show if not null
+        } else {
+            holder.time.setVisibility(View.GONE);  // Hide if null or empty
+        }
+
+        if (model.getServicePrice() != null && !model.getServicePrice().isEmpty()) {
+            holder.price.setText("₹" + model.getServicePrice());
+            holder.price.setVisibility(View.VISIBLE);  // Show if not null
+        } else {
+            holder.price.setVisibility(View.GONE);  // Hide if null or empty
+        }
+
+
+
     }
+
 
     @Override
     public int getItemCount() {

@@ -41,12 +41,15 @@ public class BookingActivity extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot:snapshot.getChildren())
-                {
-                    Model model=dataSnapshot.getValue(Model.class);
+                //list.clear();  // Clear the list to avoid duplicate entries
+
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Model model = dataSnapshot.getValue(Model.class);
                     list.add(model);
+                    // Check if the model has all necessary non-empty fields
+
                 }
-                bookingAdapter.notifyDataSetChanged();
+                bookingAdapter.notifyDataSetChanged();  // Notify the adapter of changes
             }
 
             @Override

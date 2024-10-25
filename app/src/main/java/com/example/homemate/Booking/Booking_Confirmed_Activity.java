@@ -9,8 +9,7 @@ import android.os.Handler;
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.example.homemate.BottomNavigationActivity;
-import com.example.homemate.HomeFragment;
+import com.example.homemate.Profile.Bookings.BookingActivity;
 import com.example.homemate.R;
 
 public class Booking_Confirmed_Activity extends AppCompatActivity {
@@ -30,7 +29,7 @@ public class Booking_Confirmed_Activity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(getApplicationContext(), BottomNavigationActivity.class);
+                Intent intent=new Intent(getApplicationContext(), BookingActivity.class);
                 startActivity(intent);
                 finish();
             }

@@ -24,11 +24,10 @@
         android:id="@+id/Done_booking_file"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        app:lottie_autoPlay="true"
         android:layout_centerInParent="true"
         android:elevation="5dp"
-        app:lottie_rawRes="@raw/done">
-    </com.airbnb.lottie.LottieAnimationView>
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/done"></com.airbnb.lottie.LottieAnimationView>
 
 
 </RelativeLayout>

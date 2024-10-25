@@ -11,7 +11,6 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.homemate.Profile.Address.AddAdressActivity;
 import com.example.homemate.R;
@@ -74,7 +73,7 @@ public class Final_Booking__details_Activity extends AppCompatActivity {
         Booking_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                databaseReference.addValueEventListener(new ValueEventListener() {
+               /* databaseReference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         databaseReference.child("BookingDetails").child(data_email).child(key).child("sp_name").setValue(serviceprovider);
@@ -86,18 +85,25 @@ public class Final_Booking__details_Activity extends AppCompatActivity {
                         databaseReference.child("BookingDetails").child(data_email).child(key).child("price").setValue(serviceprice);
                         databaseReference.child("BookingDetails").child(data_email).child(key).child("instructions").setValue(Instructions.getText().toString());
                         databaseReference.child("BookingDetails").child(data_email).child(key).child("status").setValue("ongoing");
-                        Toast.makeText(Final_Booking__details_Activity.this, "Booking successfully", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
 
                     }
-                });
-                Intent intent=new Intent(getApplicationContext(), Booking_Confirmed_Activity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                finish();
+                });*/
+                // Prepare data to pass to PaymentActivity
+                Intent paymentIntent = new Intent(Final_Booking__details_Activity.this, PaymentActivity.class);
+                paymentIntent.putExtra("data_email", data_email);
+                paymentIntent.putExtra("serviceprovider", serviceprovider);
+                paymentIntent.putExtra("serviceprovidercontact", serviceprovidercontact);
+                paymentIntent.putExtra("servicename", servicename);
+                paymentIntent.putExtra("serviceprice", serviceprice);
+                paymentIntent.putExtra("servicetime", servicetime);
+                paymentIntent.putExtra("servicedate", servicedate);
+                paymentIntent.putExtra("user_address", SelectedAddress.getText().toString());
+                paymentIntent.putExtra("instructions", Instructions.getText().toString());
+                startActivity(paymentIntent);
             }
         });
     }

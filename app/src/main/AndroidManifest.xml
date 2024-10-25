@@ -20,6 +20,9 @@
             android:name=".Profile.Bookings.BookingActivity"
             android:exported="false" />
         <activity
+            android:name=".Booking.PaymentActivity"
+            android:exported="false" />
+        <activity
             android:name=".Booking.SelectAddressActivity"
             android:exported="false" />
         <activity

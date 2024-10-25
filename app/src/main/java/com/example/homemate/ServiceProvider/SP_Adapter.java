@@ -136,8 +136,6 @@ public class SP_Adapter extends RecyclerView.Adapter<SP_Adapter.ViewHolder> {
             spRating = itemView.findViewById(R.id.ratingBar);
 
             // Initialize other views as needed
-
-
         }
     }
 }

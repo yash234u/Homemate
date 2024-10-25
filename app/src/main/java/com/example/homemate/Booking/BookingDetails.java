@@ -1,12 +1,38 @@
-package com.example.homemate.Profile.Bookings;
-public class Model {
-    String userEmail;
-    String uniqueOrderId;
-    String serviceDate;
-    String instructions;
-    String servicePrice;
-    String serviceName;
+package com.example.homemate.Booking;
 
+public class BookingDetails {
+    private String userEmail;
+    private String uniqueOrderId;
+    private String serviceDate;
+    private String instructions;
+    private String servicePrice;
+    private String serviceName;
+    private String serviceProviderContact;
+    private String serviceProvider;
+    //private String waiting;
+    private String serviceTime;
+    private String userAddress;
+
+    // No-argument constructor (required by Firebase)
+    public BookingDetails() {
+    }
+
+    // Parameterized constructor
+    public BookingDetails(String userEmail, String uniqueOrderId, String serviceDate, String instructions, String servicePrice, String serviceName, String serviceProviderContact, String serviceProvider, String serviceTime, String userAddress) {
+        this.userEmail = userEmail;
+        this.uniqueOrderId = uniqueOrderId;
+        this.serviceDate = serviceDate;
+        this.instructions = instructions;
+        this.servicePrice = servicePrice;
+        this.serviceName = serviceName;
+        this.serviceProviderContact = serviceProviderContact;
+        this.serviceProvider = serviceProvider;
+        //this.waiting = waiting;
+        this.serviceTime = serviceTime;
+        this.userAddress = userAddress;
+    }
+
+    // Getter and Setter methods (required by Firebase)
     public String getUserEmail() {
         return userEmail;
     }
@@ -71,6 +97,14 @@ public class Model {
         this.serviceProvider = serviceProvider;
     }
 
+   /* public String getWaiting() {
+        return waiting;
+    }
+
+    public void setWaiting(String waiting) {
+        this.waiting = waiting;
+    }
+*/
     public String getServiceTime() {
         return serviceTime;
     }
@@ -86,9 +120,4 @@ public class Model {
     public void setUserAddress(String userAddress) {
         this.userAddress = userAddress;
     }
-
-    String serviceProviderContact;
-    String serviceProvider;
-    String serviceTime;
-    String userAddress;
 }
